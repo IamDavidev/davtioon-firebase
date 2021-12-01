@@ -11,5 +11,6 @@ export const AppStyled = styled.div`
   text-align: center;
   font-size: calc(10px + 2vmin);
   min-height: 100vh;
-  background-color: #151618;
+  background-color: #0055ff;
+  margin: 0px;
 `;
