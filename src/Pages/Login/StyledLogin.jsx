@@ -4,25 +4,28 @@ export const LoginContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   padding: 10px 2rem;
-
+ 
   .login {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 45% 5% 50%;
     height: 100vh;
-    margin: 20px;
-    background-color: ${theme.$secondary};
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    background: rgba(15, 53, 60, 0.5);
+    box-shadow: 20px 20px 60px #0d2d33, -20px -20px 60px #113d45;
+    box-shadow: 0px 0px 10px #000;
+  }
+  @media (min-width: 900px) {
+    .login {
+      /* background: #dfdfdf; */
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 100%;
+    }
   }
 
   .wlogin {
     grid-row: 1/2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-bottom: 0.3px solid #000000;
     span {
       color: #0ff;
     }
@@ -30,16 +33,40 @@ export const LoginContainer = styled.div`
       font-size: 0.8rem;
     }
     img {
-      width: 40px;
+      width: 30px;
+    }
+    .loginBtn {
       display: flex;
+      margin: 1rem;
+      justify-content: center;
+      align-items: center;
+      strong {
+        margin: 10px;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+      }
     }
   }
-
+  @media (min-width: 900px) {
+    .wlogin {
+      grid-column: 1/3;
+      grid-row: 1/2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      h1 {
+        font-size: 4em;
+      }
+    }
+  }
   .loginForm {
-    grid-row: 2/5;
+    grid-row: 2/4;
     display: flex;
     justify-content: center;
-
+    box-shadow: 0px 0px 10px #000;
     span {
       color: #ff0000;
     }
@@ -57,11 +84,33 @@ export const LoginContainer = styled.div`
       color: white;
       border: none;
       outline: none;
-      background: ${theme.$secondary};
+      background: none;
       margin: 1rem 10px;
       border-bottom: 2px solid #000000;
       &::placeholder {
-        color: #ffffff;
+        color: #000000;
+      }
+    }
+  }
+  @media (min-width: 900px) {
+    .loginForm {
+      grid-column: 3/4;
+      grid-row: 1/2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        font-size: 3rem;
+        text-align:end;
+
+      }
+      button {
+        background: #0f353c;
+        box-shadow: 20px 20px 60px #0d2d33, -20px -20px 60px #113d45;
+        box-shadow: 0px 0px 10px #000;
+      }
+      input{
+        padding: 1rem;
       }
     }
   }

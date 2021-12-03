@@ -11,7 +11,7 @@ export const AppStyled = styled.div`
   text-align: center;
   font-size: calc(10px + 2vmin);
   min-height: 100vh;
-  background: #0f353c;
+  background: rgba(15, 53, 60);
   box-shadow: 20px 20px 60px #0d2d33, -20px -20px 60px #113d45;
   margin: 0px;
 `;

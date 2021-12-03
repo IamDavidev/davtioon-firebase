@@ -1,8 +1,18 @@
 import { LoginContainer } from './StyledLogin';
-import github from '../../Assets/github.svg'
-import google from '../../Assets/google.svg'
+import github from '../../Assets/github.svg';
+import google from '../../Assets/google.svg';
+import { HandleHome } from '../../helpers/hadles';
+import { useNavigate } from 'react-router';
 const Login = () => {
+  const Navigate = useNavigate()
+  const HandleSubmit = (e) => {
+    e.preventDefault();
+    Navigate('/home')
+  };
+
   return (
+   
+
     <LoginContainer>
       <div className="login">
         <div className="wlogin">
@@ -13,25 +23,36 @@ const Login = () => {
             please create an account to access your notes or log in with google
             or github
           </p>
-          <strong>
+          <p>
             login whit <span>google</span> or <span>github</span>{' '}
-          </strong>
-      <img src={github} alt="" />
-      <img src={google } alt="" />
+          </p>
+
+          <div className="loginBtn">
+            <a>
+              <strong>
+                Github
+                <img src={github} alt="" />
+              </strong>
+            </a>
+            <a>
+              <strong>
+                Google
+                <img src={google} alt="" />
+              </strong>
+            </a>
+          </div>
         </div>
         <div className="loginForm">
-          <form onSubmit={() => console.log('hola como estas pelotudo')}>
-            <h1>
-              Login
-            </h1>
+          <form onSubmit={HandleSubmit}>
+            <h1>Login</h1>
             <p>
               Don't have an account?
-              <a >Creat Your Account </a> 
+              <a>Creat Your Account </a>
               it takes less than a minute
             </p>
-            <input type="email" placeholder="Email or user name " />
-            <input type="password" placeholder="Password" />
-            <button>login</button>
+            <input required type="email" placeholder="Email or user name " />
+            <input  required type="password" placeholder="Password" />
+            <button >login</button>
           </form>
         </div>
       </div>
