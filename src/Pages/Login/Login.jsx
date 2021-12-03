@@ -1,7 +1,7 @@
 import { LoginContainer } from './StyledLogin';
 import github from '../../Assets/github.svg';
 import google from '../../Assets/google.svg';
-import { HandleHome } from '../../helpers/hadles';
+import { HandleHome, HandleLogin } from '../../helpers/hadles';
 import { useNavigate } from 'react-router';
 const Login = () => {
   const Navigate = useNavigate()
@@ -11,8 +11,6 @@ const Login = () => {
   };
 
   return (
-   
-
     <LoginContainer>
       <div className="login">
         <div className="wlogin">

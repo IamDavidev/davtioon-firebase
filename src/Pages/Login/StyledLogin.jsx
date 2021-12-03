@@ -4,20 +4,18 @@ export const LoginContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 2rem;
- 
+  padding: 1.5rem 3rem;
   .login {
     display: grid;
     grid-template-rows: 45% 5% 50%;
     height: 100vh;
     border-radius: 3px;
-    background: rgba(15, 53, 60, 0.5);
+    background: rgba(15, 53, 60);
     box-shadow: 20px 20px 60px #0d2d33, -20px -20px 60px #113d45;
     box-shadow: 0px 0px 10px #000;
   }
   @media (min-width: 900px) {
     .login {
-      /* background: #dfdfdf; */
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 100%;
@@ -101,15 +99,14 @@ export const LoginContainer = styled.div`
       align-items: center;
       h1 {
         font-size: 3rem;
-        text-align:end;
-
+        text-align: end;
       }
       button {
         background: #0f353c;
         box-shadow: 20px 20px 60px #0d2d33, -20px -20px 60px #113d45;
         box-shadow: 0px 0px 10px #000;
       }
-      input{
+      input {
         padding: 1rem;
       }
     }
