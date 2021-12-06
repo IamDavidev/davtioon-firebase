@@ -5,6 +5,7 @@ export const theme = {
   $secondary: 'rgb(28, 25, 101)',
   $tertiary: '#3F2DB7',
   $extra: '#181B34 ',
+  $pre : '#00ffff'
 };
 
 export const AppStyled = styled.div`

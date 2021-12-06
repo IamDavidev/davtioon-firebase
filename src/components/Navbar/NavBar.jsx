@@ -5,7 +5,9 @@ const NavBar = () => {
   return (
     <StyledNav>
       <div className="navbarLogo">
-        <img src={logo} alt="" />
+        <Link to="/home">
+          <img src={logo} alt="" />
+        </Link>
       </div>
       <div className="navbarLinks">
         <div className="navLink">
@@ -14,14 +16,14 @@ const NavBar = () => {
               <Link to="/login"> Login </Link>
             </li>
             <li>
-              <Link to="/notes"> notes  </Link>
+              <Link to="/notes"> notes </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/login"> link </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
-        <div className="navAuth">hola como</div>
+        <div className="navAuth">Sing Up </div>
       </div>
     </StyledNav>
   );
