@@ -8,10 +8,10 @@ export const HandleHome = () => {
 
 export const handleLoginGoogle = (id, name ) => {
   return {
-    type: types.LOGIN_GOOGLE,
     payload: {
       id,
       name,
     },
+    type: types.LOGIN_GOOGLE,
   };
 };
