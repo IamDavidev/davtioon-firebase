@@ -3,7 +3,7 @@ import github from '../../Assets/github.svg';
 import google from '../../Assets/google.svg';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { handleLoginGoogle } from '../../helpers/hadles';
+import { HandleLogin } from '../../helpers/functionHandles';
 const Login = () => {
   const dispatch = useDispatch();
   const Navigate = useNavigate();
@@ -12,7 +12,7 @@ const Login = () => {
     Navigate('/home');
   };
   const HandleGoogle = () => {
-    dispatch(handleLoginGoogle("contrasenia_segura","David Sánchez"));
+    dispatch(HandleLogin("contrasenia_segura","David Sánchez"));
     console.log("google")
   }
   return (
