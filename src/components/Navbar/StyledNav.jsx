@@ -17,10 +17,11 @@ const StyledNav = Styled.nav`
         ul{
                 display: flex;
                 list-style: none;
-                margin:0px;
-                padding:0px;
+                margin:.3rem;
+                padding:.5rem;
+        }
         li{
-                margin-left: 5px;
+                margin-left: .5rem;
                 list-style: none;
         }
         .navbarLinks{
@@ -36,4 +37,4 @@ const StyledNav = Styled.nav`
 `;
 
 export default StyledNav;
-3
+3;

@@ -7,7 +7,8 @@ import Notes from '../Pages/Notes/Notes';
 const AppRoutes = () => {
   return (
     <BrowserRouter>
-      {location.pathname === '/login' ? '' : <NavBar />}
+      {/* {location.pathname === '/login' ? '' : <NavBar />} */}
+      <NavBar />
       <Routes>
         <Route path="*" element={<Navigate replace to="/login" />} />
         <Route path="/login" element={<Login />} />

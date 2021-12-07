@@ -1,15 +1,20 @@
 import { LoginContainer } from './StyledLogin';
 import github from '../../Assets/github.svg';
 import google from '../../Assets/google.svg';
-import { HandleHome, HandleLogin } from '../../helpers/hadles';
 import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { handleLoginGoogle } from '../../helpers/hadles';
 const Login = () => {
-  const Navigate = useNavigate()
+  const dispatch = useDispatch();
+  const Navigate = useNavigate();
   const HandleSubmit = (e) => {
     e.preventDefault();
-    Navigate('/home')
+    Navigate('/home');
   };
-
+  const HandleGoogle = () => {
+    dispatch(handleLoginGoogle("contrasenia_segura","David Sánchez"));
+    console.log("google")
+  }
   return (
     <LoginContainer>
       <div className="login">
@@ -24,20 +29,19 @@ const Login = () => {
           <p>
             login whit <span>google</span> or <span>github</span>{' '}
           </p>
-
           <div className="loginBtn">
-            <a>
+            <button>
               <strong>
                 Github
                 <img src={github} alt="" />
               </strong>
-            </a>
-            <a>
+            </button>
+            <button onClick={HandleGoogle}>
               <strong>
                 Google
                 <img src={google} alt="" />
               </strong>
-            </a>
+            </button>
           </div>
         </div>
         <div className="loginForm">
@@ -49,8 +53,8 @@ const Login = () => {
               it takes less than a minute
             </p>
             <input required type="email" placeholder="Email or user name " />
-            <input  required type="password" placeholder="Password" />
-            <button >login</button>
+            <input required type="password" placeholder="Password" />
+            <button>login</button>
           </form>
         </div>
       </div>
