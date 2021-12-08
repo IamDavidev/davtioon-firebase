@@ -5,6 +5,16 @@ export const LoginContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 1.5rem 3rem;
+  button {
+    background: fixed;
+    border: none;
+    margin: 0.3rem;
+    border-bottom: 2px solid ${theme.$secondary};
+    :hover {
+      border-bottom: 2px solid  #0fff;
+      transition: all 0.2s ease-in-out;
+    }
+  }
   .login {
     display: grid;
     grid-template-rows: 45% 5% 50%;
@@ -89,6 +99,15 @@ export const LoginContainer = styled.div`
         color: #000000;
       }
     }
+    button{
+      margin: 1rem;
+      padding: 1rem;
+      border: none;
+      box-shadow:none;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      border-bottom: 2px solid ${theme.$secondary};
+    }
   }
   @media (min-width: 900px) {
     .loginForm {
@@ -100,11 +119,6 @@ export const LoginContainer = styled.div`
       h1 {
         font-size: 3rem;
         text-align: end;
-      }
-      button {
-        background: #0f353c;
-        box-shadow: 20px 20px 60px #0d2d33, -20px -20px 60px #113d45;
-        box-shadow: 0px 0px 10px #000;
       }
       input {
         padding: 1rem;

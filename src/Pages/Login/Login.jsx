@@ -3,7 +3,11 @@ import github from '../../Assets/github.svg';
 import google from '../../Assets/google.svg';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { HandleLogin } from '../../helpers/functionHandles';
+import {
+  HandleLogin,
+  HandleLoginWithGoogle,
+} from '../../helpers/functionHandles';
+import {Link} from 'react-router-dom'
 const Login = () => {
   const dispatch = useDispatch();
   const Navigate = useNavigate();
@@ -12,8 +16,11 @@ const Login = () => {
     Navigate('/home');
   };
   const HandleGoogle = () => {
-    dispatch(HandleLogin("contrasenia_segura","David Sánchez"));
-    console.log("google")
+    dispatch(HandleLogin('contrasenia_segura', 'David Sánchez'));
+    console.log('google');
+  };
+  const handle = () => {
+    HandleLoginWithGoogle()
   }
   return (
     <LoginContainer>
@@ -36,7 +43,7 @@ const Login = () => {
                 <img src={github} alt="" />
               </strong>
             </button>
-            <button onClick={HandleGoogle}>
+            <button onClick={handle}>
               <strong>
                 Google
                 <img src={google} alt="" />
@@ -49,7 +56,7 @@ const Login = () => {
             <h1>Login</h1>
             <p>
               Don't have an account?
-              <a>Creat Your Account </a>
+              <Link to="/register">Creat Your Account </Link>
               it takes less than a minute
             </p>
             <input required type="email" placeholder="Email or user name " />

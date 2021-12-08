@@ -1,21 +1,25 @@
 import { useNavigate } from 'react-router-dom';
 import types from './types';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { auth } from '../Firebase/config';
 
 export const HandleHome = () => {
   const Navigate = useNavigate();
   Navigate('/home');
 };
 
-const HandleLoginWithGoogle = () => {
-  const auth = getAuth();
+export const HandleLoginWithGoogle = () => {
+  const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
     .then((res) => {
-      const credential = GoogleAuthProvider.credentialFromResult(res);
-      console.log(credential);
-      const token = credential.accessToken;
-      const user = result && result.user;
-      console.log(user);
+        console.log(res);
+        console.log(res.user.displayName);
+        console.log(res.user.email);
+        console.log(res.user.photoURL);
+        console.log(res.user.uid);
+        console.log(res.user.emailVerified);
+        console.log(res.user.providerData);
+      // console.log(res);
     })
     .catch((err) => {
       const errorCode = error.code;
@@ -23,6 +27,7 @@ const HandleLoginWithGoogle = () => {
       const email = error.email;
       const credential = GoogleAuthProvider.credentialFromResult(error);
     });
+  // };
 };
 
 export const HandleLogin = (id, name) => {
