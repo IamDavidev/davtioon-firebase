@@ -1,42 +1,50 @@
 import { StyledRegister } from './StyledRegister';
-
+import { HandleRegister } from '../../helpers/functionHandles';
+import { MdPassword } from 'react-icons/md';
+import { IoIosMail, IoMdPerson } from 'react-icons/io';
+import {Toaster} from 'react-hot-toast'
 const Register = () => {
-  const HandleRegister = (evt) => {
-    evt.preventDefault();
-    const firstName = evt.target.firstName.value;
-    const lastName = evt.target.lastName.value;
-    const email = evt.target.email.value 
-    const password = evt.target.password.value
-    const confirmPassword = evt.target.confirmPassword.value
-    const user = {
-        firstName,
-        lastName,
-        email,
-        password,
-        confirmPassword
-    }
-    console.log(user)
-    
-  };
   return (
     <StyledRegister>
       <h1>Register</h1>
-      <form onSubmit={HandleRegister}>
-        <input type="text" name="firstName" placeholder="firstName" />
-
-        <input type="text" name="lastName" placeholder="lastName" />
-
-        <input type="text" name="email" placeholder="email" />
-
-        <input type="password" name="password" placeholder="password" />
-
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="confirm Password"
-        />
-
+      <form onSubmit={(evt) => HandleRegister({ evt })}>
+        <label className="inputRegister">
+          <IoMdPerson className="icon" />
+          <input
+            required
+            type="text"
+            name="firstName"
+            placeholder="firstName"
+          />
+        </label>
+        <label className="inputRegister">
+          <IoMdPerson className="icon" />
+          <input required type="text" name="lastName" placeholder="lastName" />
+        </label>
+        <label className="inputRegister">
+          <IoIosMail className="icon" />
+          <input required type="text" name="email" placeholder="email" />
+        </label>
+        <label className="inputRegister">
+          <MdPassword className="icon" />
+          <input
+            required
+            type="password"
+            name="password"
+            placeholder="password"
+          />
+        </label>
+        <label className="inputRegister">
+          <MdPassword className="icon" />
+          <input
+            required
+            type="password"
+            name="confirmPassword"
+            placeholder="confirm Password"
+          />
+        </label>
         <button>register user in firebase</button>
+        <Toaster/>
       </form>
     </StyledRegister>
   );
