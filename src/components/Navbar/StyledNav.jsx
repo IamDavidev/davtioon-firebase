@@ -13,6 +13,11 @@ const StyledNav = Styled.nav`
                 color: ${theme.$pre};
                 display: flex;
                 text-decoration:none;
+                ::active{
+                        color: ${theme.$secondary};
+                        font-weight: bold;
+                        }
+                
         }     
         ul{
                 display: flex;

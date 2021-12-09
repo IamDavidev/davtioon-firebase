@@ -23,7 +23,9 @@ const NavBar = () => {
             </li> */}
           </ul>
         </div>
-        <div className="navAuth">Sing Up </div>
+        <div className="navAuth">
+          <Link to='/login'>Sing Up</Link>
+        </div>
       </div>
     </StyledNav>
   );

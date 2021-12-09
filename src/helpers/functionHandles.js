@@ -46,18 +46,13 @@ export const HandleLogin = (id, name) => {
   };
 };
 
-export const HandleRegister = ({ evt }) => {
+export const HandleRegister = ({ evt, navigate }) => {
   evt.preventDefault();
   const firstName = evt.target.firstName.value;
   const lastName = evt.target.lastName.value;
   const email = evt.target.email.value;
   const password = evt.target.password.value;
   const confirmPassword = evt.target.confirmPassword.value;
-
-  if (password !== confirmPassword) {
-    toast.error('Password does not match');
-    console.log('Password does not match');
-  }
 
   if (password === confirmPassword) {
     toast.success('User created successfully');
@@ -67,5 +62,10 @@ export const HandleRegister = ({ evt }) => {
         const { uid } = crendential.user;
       }
     );
+    navigate('/home');
+  }
+  if (password !== confirmPassword) {
+    toast.error('Passwords do not match');
+    console.log('Password does not match');
   }
 };

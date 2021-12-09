@@ -2,12 +2,14 @@ import { StyledRegister } from './StyledRegister';
 import { HandleRegister } from '../../helpers/functionHandles';
 import { MdPassword } from 'react-icons/md';
 import { IoIosMail, IoMdPerson } from 'react-icons/io';
-import {Toaster} from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 const Register = () => {
+  const navigate = useNavigate();
   return (
     <StyledRegister>
       <h1>Register</h1>
-      <form onSubmit={(evt) => HandleRegister({ evt })}>
+      <form onSubmit={(evt) => HandleRegister({ evt, navigate })}>
         <label className="inputRegister">
           <IoMdPerson className="icon" />
           <input
@@ -44,7 +46,7 @@ const Register = () => {
           />
         </label>
         <button>register user in firebase</button>
-        <Toaster/>
+        <Toaster />
       </form>
     </StyledRegister>
   );
