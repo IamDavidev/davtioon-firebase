@@ -4,24 +4,18 @@ import google from '../../Assets/google.svg';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
 import {
+  HandleAccesUser,
   HandleLogin,
   HandleLoginWithGoogle,
 } from '../../helpers/functionHandles';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 const Login = () => {
   const dispatch = useDispatch();
-  const Navigate = useNavigate();
-  const HandleSubmit = (e) => {
-    e.preventDefault();
-    Navigate('/home');
-  };
-  const HandleGoogle = () => {
-    dispatch(HandleLogin('contrasenia_segura', 'David Sánchez'));
-    console.log('google');
-  };
+  const navigate = useNavigate();
   const handle = () => {
-    HandleLoginWithGoogle()
-  }
+    HandleLoginWithGoogle();
+  };
   return (
     <LoginContainer>
       <div className="login">
@@ -52,19 +46,20 @@ const Login = () => {
           </div>
         </div>
         <div className="loginForm">
-          <form onSubmit={HandleSubmit}>
+          <form onSubmit={(evt) => HandleAccesUser({ evt, navigate })}>
             <h1>Login</h1>
             <p>
               Don't have an account?
               <Link to="/register">Creat Your Account </Link>
               it takes less than a minute
             </p>
-            <input required type="email" placeholder="Email or user name " />
-            <input required type="password" placeholder="Password" />
+            <input required type="email" placeholder="Email or user name" name="email" />
+            <input required type="password" placeholder="Password" name="password"/>
             <button>login</button>
           </form>
         </div>
       </div>
+      <Toaster />
     </LoginContainer>
   );
 };

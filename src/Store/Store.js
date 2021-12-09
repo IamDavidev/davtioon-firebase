@@ -1,4 +1,4 @@
-import AuthReducer from '../Reduccers/AuthReducer';
+import AuthReducer from '../Utils/AuthReducer';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 

@@ -4,10 +4,7 @@ const AuthReducer = (state = {}, action) => {
   const { type, payload } = action;
   console.log({ state, action });
   if (type === types.LOGIN) {
-    return {
-      ...state,
-      ...payload
-    };
+    
   }
 
   if (type === types.LOGOUT) {
