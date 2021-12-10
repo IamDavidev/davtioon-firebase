@@ -8,8 +8,9 @@ import {useContext} from 'react';
     console.log(authUser);
     return (
         <div>
-
-            <h1>Home</h1>
+            {
+                authUser.isLoggedIn === true ? <h1>Welcome {authUser.name}</h1> : <h1>Welcome Guest</h1>
+            }
         </div>
     )
 }

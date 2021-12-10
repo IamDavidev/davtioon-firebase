@@ -2,7 +2,6 @@ import { LoginContainer } from './StyledLogin';
 import github from '../../Assets/github.svg';
 import google from '../../Assets/google.svg';
 import { useNavigate } from 'react-router';
-import { useDispatch } from 'react-redux';
 import {
   // HandleAccesUser,
   HandleLogin,
@@ -12,35 +11,45 @@ import { Link } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../Firebase/config';
+import { useContext } from 'react';
+import { ContextUser } from '../../Utils/context';
 const Login = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { authUser, setAuthUser } = useContext(ContextUser);
   const handle = () => {
     HandleLoginWithGoogle();
   };
   const handleLogin = (e) => {
-      dispatch(HandleLogin("hola","uid","email"));
-  }
+    dispatch(HandleLogin('hola', 'uid', 'email'));
+  };
   const HandleAccesUser = (evt) => {
-  evt.preventDefault();
-  const mail = evt.target.email.value;
-  const password = evt.target.password.value;
-  signInWithEmailAndPassword(auth, mail, password)
-    .then((AccesUser) => {
-      const user = AccesUser.user;
-      const { uid } = user;
-      console.log(user)
-      dispatch(HandleLogin(user.displayName, uid, user.email));
-    })
-    .catch((err) => {
-      const errorcode = err.code;
-      const errormessage = err.message;
-      console.log('user did not sign up correctly');
-      console.log(err.code);
-      console.log(err.message);
-      return toast.error(err.message);
-    });
-};
+    evt.preventDefault();
+    const mail = evt.target.email.value;
+    const password = evt.target.password.value;
+    signInWithEmailAndPassword(auth, mail, password)
+      .then(({user}) => {
+        const { uid } = user;
+        const name = user.displayName || " ";
+        const email = user.email;
+        console.log(user);
+       setAuthUser({
+          name,
+          email,
+          uid,
+          isLoggedIn : true,
+       })
+       console.log(authUser);
+       return navigate('/home');
+      })
+      .catch((err) => {
+        const errorcode = err.code;
+        const errormessage = err.message;
+        console.log('user did not sign up correctly');
+        console.log(err.code);
+        console.log(err.message);
+        return toast.error(err.message);
+      });
+  };
   return (
     <LoginContainer>
       <div className="login">
@@ -78,8 +87,18 @@ const Login = () => {
               <Link to="/register">Creat Your Account </Link>
               it takes less than a minute
             </p>
-            <input required type="email" placeholder="Email or user name" name="email" />
-            <input required type="password" placeholder="Password" name="password"/>
+            <input
+              required
+              type="email"
+              placeholder="Email or user name"
+              name="email"
+            />
+            <input
+              required
+              type="password"
+              placeholder="Password"
+              name="password"
+            />
             <button>login</button>
           </form>
         </div>

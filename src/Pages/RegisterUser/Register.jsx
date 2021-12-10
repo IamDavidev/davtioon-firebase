@@ -84,7 +84,7 @@ const Register = () => {
             autoComplete="on"
           />
         </label>
-        <button>register user in firebase</button>
+        <button> OK </button>
         <Toaster />
       </form>
     </StyledRegister>
