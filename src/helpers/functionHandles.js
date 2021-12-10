@@ -8,21 +8,15 @@ import {
 } from 'firebase/auth';
 import { auth } from '../Firebase/config';
 import toast from 'react-hot-toast';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { ContextUser } from '../Utils/context';
 //#endregion
 
 export const HandleLoginWithGoogle = () => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
     .then((res) => {
-      console.log(res);
-      console.log(res.user.displayName);
-      console.log(res.user.email);
-      console.log(res.user.photoURL);
-      console.log(res.user.uid);
-      console.log(res.user.emailVerified);
-      console.log(res.user.providerData);
-      // console.log(res);
+        console.log(res);
     })
     .catch((err) => {
       const errorCode = err.code;
@@ -33,19 +27,18 @@ export const HandleLoginWithGoogle = () => {
   // };
 };
 
-export const HandleLogin = (id, name) => {
+export const HandleLogin = (uid, name, email) => {
   return {
     payload: {
-      id,
+      uid,
       name,
+      email,
     },
     type: types.LOGIN,
   };
 };
 
-export const HandleRegister = ({ evt, navigate }) => {
-  const [nav, setNav] = useState(false)
-  evt.preventDefault();
+export const HandleRegisterUser = ({ evt, navigate, dispatch }) => {
   const firstName = evt.target.firstName.value;
   const lastName = evt.target.lastName.value;
   const email = evt.target.email.value;
@@ -59,26 +52,26 @@ export const HandleRegister = ({ evt, navigate }) => {
     console.log('Password must be at least 6 characters');
     return toast.error('Password must be at least 6 characters');
   }
-  toast.success('User created successfully');
   createUserWithEmailAndPassword(auth, email, password)
     .then(async (credential) => {
       const { uid } = credential.user;
-      const { user } = credential;
-      await user.updateProfile({
+
+      await credential.user.updateProfile({
         displayName: `${firstName} ${lastName}`,
       });
+      navigate('/home');
+      return await dispatch(
+        HandleLogin(uid, `${firstName} ${lastName}`),
+        email
+      );
     })
     .catch((err) => {
       const errorcode = err.code;
       const errormessage = err.message;
     });
-    
-    setNav(true)
-  // navigate('/home');
 };
 
 export const HandleAccesUser = ({ evt, navigate }) => {
-  const [nav, setNav] = useState(false)
   evt.preventDefault();
   const mail = evt.target.email.value;
   const password = evt.target.password.value;
@@ -86,15 +79,14 @@ export const HandleAccesUser = ({ evt, navigate }) => {
     .then((AccesUser) => {
       const user = AccesUser.user;
       const { uid } = user;
-
     })
     .catch((err) => {
       const errorcode = err.code;
       const errormessage = err.message;
-      console.log("user did not sign up correctly");
+      console.log('user did not sign up correctly');
       console.log(err.code);
       console.log(err.message);
       return toast.error(err.message);
     });
-    nav && navigate('/home')
+  nav && navigate('/home');
 };

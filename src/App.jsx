@@ -2,16 +2,20 @@ import { Provider } from 'react-redux';
 import AppRoutes from './Routes/Routes';
 import { AppStyled } from './StyledMain';
 import { store } from './Store/Store';
-
+import { ContextUser } from './Utils/context';
+import { useState } from 'react';
 
 
 const App = () => {
+const [authUser, setAuthUser] = useState("https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200");
   return (
-    <Provider store={store}>
-      <AppStyled>
-        <AppRoutes />
-      </AppStyled>
-    </Provider>
+    <ContextUser.Provider value={{ authUser, setAuthUser }}>
+      <Provider store={store}>
+        <AppStyled>
+          <AppRoutes />
+        </AppStyled>
+      </Provider>
+    </ContextUser.Provider>
   );
 };
 
