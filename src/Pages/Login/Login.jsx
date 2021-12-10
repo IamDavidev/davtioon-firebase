@@ -4,18 +4,43 @@ import google from '../../Assets/google.svg';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
 import {
-  HandleAccesUser,
+  // HandleAccesUser,
   HandleLogin,
   HandleLoginWithGoogle,
 } from '../../helpers/functionHandles';
 import { Link } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../Firebase/config';
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handle = () => {
     HandleLoginWithGoogle();
   };
+  const handleLogin = (e) => {
+      dispatch(HandleLogin("hola","uid","email"));
+  }
+  const HandleAccesUser = (evt) => {
+  evt.preventDefault();
+  const mail = evt.target.email.value;
+  const password = evt.target.password.value;
+  signInWithEmailAndPassword(auth, mail, password)
+    .then((AccesUser) => {
+      const user = AccesUser.user;
+      const { uid } = user;
+      console.log(user)
+      dispatch(HandleLogin(user.displayName, uid, user.email));
+    })
+    .catch((err) => {
+      const errorcode = err.code;
+      const errormessage = err.message;
+      console.log('user did not sign up correctly');
+      console.log(err.code);
+      console.log(err.message);
+      return toast.error(err.message);
+    });
+};
   return (
     <LoginContainer>
       <div className="login">
@@ -31,7 +56,7 @@ const Login = () => {
             login whit <span>google</span> or <span>github</span>{' '}
           </p>
           <div className="loginBtn">
-            <button>
+            <button onClick={handleLogin}>
               <strong>
                 Github
                 <img src={github} alt="" />
@@ -46,7 +71,7 @@ const Login = () => {
           </div>
         </div>
         <div className="loginForm">
-          <form onSubmit={(evt) => HandleAccesUser({ evt, navigate })}>
+          <form onSubmit={HandleAccesUser}>
             <h1>Login</h1>
             <p>
               Don't have an account?

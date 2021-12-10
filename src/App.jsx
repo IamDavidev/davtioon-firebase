@@ -5,9 +5,14 @@ import { store } from './Store/Store';
 import { ContextUser } from './Utils/context';
 import { useState } from 'react';
 
-
 const App = () => {
-const [authUser, setAuthUser] = useState("https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200");
+  const State = {
+    name: '',
+    email: '',
+    uid: '',
+    isLoggedIn: false,
+  };
+  const [authUser, setAuthUser] = useState(State);
   return (
     <ContextUser.Provider value={{ authUser, setAuthUser }}>
       <Provider store={store}>

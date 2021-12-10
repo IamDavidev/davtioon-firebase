@@ -1,21 +1,19 @@
 import { StyledRegister } from './StyledRegister';
-import { HandleLogin, HandleRegisterUser } from '../../helpers/functionHandles';
 import { MdPassword } from 'react-icons/md';
 import { IoIosMail, IoMdPerson } from 'react-icons/io';
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { ContextUser } from '../../Utils/context';
 import { useContext } from 'react';
-import { useDispatch } from 'react-redux';
 import { auth } from '../../Firebase/config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const Register = () => {
   const navigate = useNavigate();
-  const { authUser, SetAuthUser } = useContext(ContextUser);
+  const { authUser, setAuthUser } = useContext(ContextUser);
   const HandleRegisterUser = (evt) => {
     evt.preventDefault();
-    const firstName = evt.target.firstName.value;
+    const name = evt.target.firstName.value;
     const lastName = evt.target.lastName.value;
     const email = evt.target.email.value;
     const password = evt.target.password.value;
@@ -29,22 +27,21 @@ const Register = () => {
       return toast.error('Password must be at least 6 characters');
     }
     createUserWithEmailAndPassword(auth, email, password)
-      .then(async (credential) => {
-        const { uid } = credential.user;
-        console.log(credential);
-        navigate('/home');
-        SetAuthUser('hola creo que ese puede ser');
-        await credential.user.updateProfile({
-          displayName: `${firstName} ${lastName}`,
-        });
+      .then(({ user }) => {
+        const userData = {
+          name,
+          email,
+          uid: user.uid,
+          isLoggedIn: true,
+        };
+        setAuthUser(userData);
         console.log(authUser);
+        return navigate('/home');
       })
       .catch((err) => {
         const errorcode = err.code;
         const errormessage = err.message;
       });
-    console.log(authUser);
-    console.log(createUserWithEmailAndPassword());
   };
   return (
     <StyledRegister>
