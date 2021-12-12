@@ -9,7 +9,7 @@ import {useContext} from 'react';
     return (
         <div>
             {
-                authUser.isLoggedIn === true ? <h1>Welcome {authUser.name}</h1> : <h1>Welcome Guest</h1>
+                authUser.isLoggedIn === true ? <h1>Welcome {authUser.name}</h1> : <h1>Logged </h1>
             }
         </div>
     )
