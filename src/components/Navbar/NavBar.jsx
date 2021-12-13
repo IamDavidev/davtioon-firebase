@@ -18,13 +18,10 @@ const NavBar = () => {
             <li>
               <Link to="/notes/search"> search </Link>
             </li>
-            {/* <li>
-              <Link to="/login"> link </Link>
-            </li> */}
           </ul>
         </div>
         <div className="navAuth">
-          <Link to='/login'>Sign Up</Link>
+          <Link to="/login">Sign Up</Link>
         </div>
       </div>
     </StyledNav>

@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {getFirestore} from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -13,21 +14,22 @@ const firebaseConfig = {
   messagingSenderId: '36928251506',
   appId: '1:36928251506:web:9a2efa688fe401320284eb',
 };
+const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-// const db = getFirestore(app);
+export const db = getFirestore()
+
 
 export const auth = getAuth(app);
 
 // Get a list of cities from your database
 
-async function getCities(db) {
-  const citiesCol = collection(db, 'cities');
-  const citySnapshot = await getDocs(citiesCol);
-  const cityList = citySnapshot.docs.map((doc) => doc.data());
-  return cityList;
-}
+// async function getCities(db) {
+//   const citiesCol = collection(db, 'cities');
+//   const citySnapshot = await getDocs(citiesCol);
+//   const cityList = citySnapshot.docs.map((doc) => doc.data());
+//   return cityList;
+// }
 
 
 // export { db, auth, storage, authGoogle }; otra manera de exportar

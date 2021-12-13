@@ -2,7 +2,7 @@ import types from '../helpers/types';
 
 const AuthReducer = (state = {}, action) => {
   const { type, payload } = action;
-  console.log({ state, action });
+  // console.log({ state, action });
   if (type === types.LOGIN) {
     console.log('user : ', payload);
   }

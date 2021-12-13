@@ -66,6 +66,7 @@ export const HandleRegisterUser = ({ evt, navigate, dispatch }) => {
       );
     })
     .catch((err) => {
+      
       const errorcode = err.code;
       const errormessage = err.message;
     });
