@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <StyledNav>
       <div className="navbarLogo">
-        <Link to="/home">
+        <Link to="/notes">
           <img src={logo} alt="" />
         </Link>
       </div>

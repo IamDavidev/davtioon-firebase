@@ -1,21 +1,29 @@
-import { addDoc, collection } from 'firebase/firestore';
-import { useContext } from 'react';
+import {
+  addDoc,
+  collection,
+  getDoc,
+  getDocs,
+  setDoc,
+} from 'firebase/firestore';
+import { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import NoUser from '../../components/NoUser';
 import { db } from '../../Firebase/config';
+import firebasePrueba from '../../helpers/firebasePrueba';
 import { ContextUser } from '../../Utils/context';
 const Home = () => {
   const HandleFire = async () => {
-    try {
-      const docRef = await addDoc(collection(db, 'users'), {
-        first: 'Ada',
-        last: 'Lovelace',
-        born: 1815,
-      });
-      console.log('Document written with ID: ', docRef.id);
-    } catch (e) {
-      console.error('Error adding document: ', e);
-    }
+    const collectionPrueba = collection(db, 'prueba');
+
+    await addDoc('COLLECTIONFIRE', {
+      name: 'Juan',
+      important: true,
+    });
   };
+
+  useEffect(() => {
+    firebasePrueba();
+  }, [firebasePrueba]);
   const { authUser, setAuthUser } = useContext(ContextUser);
   return (
     <div>
@@ -23,6 +31,8 @@ const Home = () => {
         <>
           <h1>Welcome {authUser.name}</h1>
           <button onClick={HandleFire}>Add</button>
+          <Link to="/notes/add"  >Notas</Link>
+          {/* <button onClick={querySnapshot}>Query</button>  */}
         </>
       ) : (
         <NoUser />

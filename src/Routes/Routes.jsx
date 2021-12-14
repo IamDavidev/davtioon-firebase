@@ -5,6 +5,7 @@ import NavBar from '../components/Navbar/NavBar';
 import Notes from '../Pages/Notes/Notes';
 import Register from '../Pages/RegisterUser/Register';
 import Search from '../Pages/Search/Search';
+import NotesAdd from '../components/NotesAdd';
 
 const AppRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const AppRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/notes" element={<Notes />} />
+        <Route path="/notes/add" element={<NotesAdd />} />
         <Route path="/register" element={<Register />} />
         <Route path='/notes/search' element={<Search />} />
       </Routes>
