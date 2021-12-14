@@ -1,10 +1,14 @@
+import { useContext } from "react";
 import { addNote } from "../helpers/ActionFire";
+import { ContextUser } from "../Utils/context";
 
 
 const NotesAdd = () => {
+  const {authUser , setAuthUser} = useContext(ContextUser);
+
   const Handle = (evt) => {
     evt.preventDefault();
-    addNote({ evt });
+    addNote({ evt, uid: authUser.uid });
   };
   return (
     <div>
