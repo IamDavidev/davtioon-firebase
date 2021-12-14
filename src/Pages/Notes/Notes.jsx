@@ -14,8 +14,9 @@ const Notes = () => {
     }
     snapShot.forEach((not) => {
       const data = not.data();
-      const id = not.id();
-      setNotes((prev) => [...prev, data, id]);
+      const id = not.id;
+      const note = { id, ...data };
+      setNotes((prev) => [...prev, note]);
     });
   };
   useEffect(async () => {

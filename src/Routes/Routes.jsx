@@ -5,7 +5,7 @@ import NavBar from '../components/Navbar/NavBar';
 import Notes from '../Pages/Notes/Notes';
 import Register from '../Pages/RegisterUser/Register';
 import Search from '../Pages/Search/Search';
-import NotesAdd from '../components/NotesAdd';
+import NotesAdd from '../components/NotesAdd/NotesAdd';
 
 const AppRoutes = () => {
   return (
