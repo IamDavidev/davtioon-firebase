@@ -10,15 +10,15 @@ const NotesAdd = () => {
     addNote({ evt, uid: authUser.uid });
   };
   return (
-    <AddNote AddNote>
-      <h1>Notes</h1>
+    <AddNote>
+      <h1>AddNotes</h1>
       <form onSubmit={Handle}>
-        <div className="input-group">
+        <div className="inputGroup">
           <label>
             <MdTitle />
             <input placeholder="Title" type="text" name="title" required />
           </label>
-          <label>
+          <label className='impCheck'>
             Important
             <input type="checkbox" value={true} name="important" />
           </label>
@@ -37,9 +37,11 @@ const NotesAdd = () => {
         </div>
         <label className="textContent">
           <MdContentPaste />
-          <textarea />
+          <textarea name="content" />
         </label>
-        <button className="btnAdd">addNote</button>
+        <div className="btnAdd">
+          <button>addNote</button>
+        </div>
       </form>
     </AddNote>
   );

@@ -10,7 +10,5 @@ export const addNote = async ({ evt, uid }) => {
     important: evt.target.important.checked,
     date: new Date(),
     category: evt.target.category.value,
-    img: evt.target.img.value,
   });
 };
-

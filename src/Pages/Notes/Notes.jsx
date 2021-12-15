@@ -1,5 +1,8 @@
 import { collection, getDocs, query } from 'firebase/firestore';
 import { useContext, useEffect, useState } from 'react';
+import AddNote from '../../components/NotesAdd/StyledAddNote';
+import NotesR from '../../components/NotesR';
+import NoUser from '../../components/NoUser';
 import { db } from '../../Firebase/config';
 import { ContextUser } from '../../Utils/context';
 
@@ -22,24 +25,12 @@ const Notes = () => {
   useEffect(async () => {
     handlefunction();
   }, []);
-  const logout = () => {
-    setAuthUser((authUser.isLoggedIn = false));
-    setNotes([]);
-  };
-  console.log(notes);
   return (
     <div>
-      {' '}
-      <h1>Notes</h1>
-      {notes.map((note) => {
-        return (
-          <div key={note.date}>
-            <h3>{note.title}</h3>
-            <p>{note.name}</p>
-            <p>{note.id}</p>
-          </div>
-        );
-      })}
+      {
+        authUser.isLoggedIn === true ? <NotesR  notes={notes}  /> : <NoUser />
+      }
+
     </div>
   );
 };
