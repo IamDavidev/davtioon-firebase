@@ -1,14 +1,14 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
+export const ContextUser = createContext({});
 
+export const StateContext = {
+  name: '',
+  email: '',
+  uid: '',
+  isLoggedIn: false,
+};
 
-export const ContextUser =  createContext('context');
+export const ContextNotes = createContext([]);
 
-
-
-export const StateContext ={
-    name: '',
-    email: '',
-    uid: '',
-    isLoggedIn: false,
-  };
+export const StateNotes = [];

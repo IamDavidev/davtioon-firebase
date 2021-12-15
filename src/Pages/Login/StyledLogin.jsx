@@ -20,7 +20,7 @@ export const LoginContainer = styled.div`
     grid-template-rows: 45% 5% 50%;
     height: 100vh;
     border-radius: 3px;
-    background: rgba(15, 53, 60);
+    background: ${theme.$primary};
     box-shadow: 20px 20px 60px #0d2d33, -20px -20px 60px #113d45;
     box-shadow: 0px 0px 10px #000;
   }

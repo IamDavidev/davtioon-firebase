@@ -38,7 +38,7 @@ const AddNote = Styled.div`
         display:flex;
         align-items: center;
         padding:1rem;
-        border-bottom: 1px solid ${theme.$secondary};
+        border-bottom: 2px solid ${theme.$secondary};
     }
     input{
     border: none;

@@ -1,24 +1,31 @@
-import { useContext } from 'react';
-import { addNote } from '../../helpers/ActionFire';
+import { useContext } from 'react'
+import {addNote} from '../../Firebase/ActionFirebase'
 import { ContextUser } from '../../Utils/context';
 import AddNote from './StyledAddNote';
-import { MdContentPaste, MdCategory, MdImage, MdTitle } from 'react-icons/md';
+import {
+  MdContentPaste,
+  MdCategory,
+  MdTitle,
+  MdDownloadDone,
+} from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 const NotesAdd = () => {
   const { authUser, setAuthUser } = useContext(ContextUser);
-  const Handle = (evt) => {
+  const navigate = useNavigate();
+  const HandleAddNote = (evt) => {
     evt.preventDefault();
-    addNote({ evt, uid: authUser.uid });
+    addNote({ evt, uid: authUser.uid, nav: navigate });
   };
   return (
     <AddNote>
       <h1>AddNotes</h1>
-      <form onSubmit={Handle}>
+      <form onSubmit={HandleAddNote}>
         <div className="inputGroup">
           <label>
             <MdTitle />
             <input placeholder="Title" type="text" name="title" required />
           </label>
-          <label className='impCheck'>
+          <label className="impCheck">
             Important
             <input type="checkbox" value={true} name="important" />
           </label>
@@ -28,19 +35,19 @@ const NotesAdd = () => {
               <option value="school"> school </option>
               <option value="work">work</option>
               <option value="daily">daily</option>
+              <option value="others">others</option>
+              <option value="ideas">ideas</option>
             </select>
           </label>
-          {/* <label>
-          <MdImage />
-          <input placeholder="img" name="img" type="text" required />
-        </label> */}
         </div>
         <label className="textContent">
           <MdContentPaste />
           <textarea name="content" />
         </label>
         <div className="btnAdd">
-          <button>addNote</button>
+          <button>
+            <MdDownloadDone />
+          </button>
         </div>
       </form>
     </AddNote>
