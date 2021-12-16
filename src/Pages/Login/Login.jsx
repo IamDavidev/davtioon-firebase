@@ -84,8 +84,8 @@ const Login = () => {
             <h1>Login</h1>
             <p>
               Don't have an account?
-              <Link to="/register">Creat Your Account </Link>
-              it takes less than a minute
+              <Link to="/register">Creat Your Account </Link>  
+                it takes less than a minute
             </p>
             <input
               required

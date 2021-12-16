@@ -50,7 +50,29 @@ const StyledNotesR = Styled.main`
             border-bottom: 2px solid ${theme.$secondary};
         }
     }
+    h3{
+        font-size: 1rem;
+        font-weight: bold;
+        padding-top:1rem;
+        color: ${theme.$pre};
+      }
+      .titleI{
+        color: #f00
+      }
+      span{
+        font-size: .3rem;
+        display:flex;
+        justify-content: flex-end;
+        padding-top:3rem;
 
+      }
+      strong{
+        display:flex;
+        justify-content:flex-start;
+      }
+      p{
+        font-size: .8rem;  
+      }
 `;
 
 export default StyledNotesR;

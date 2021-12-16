@@ -29,7 +29,7 @@ const Notes = () => {
     <>
     {
       authUser.isLoggedIn === true
-        ? <NotesR notes={notes} />
+        ? <NotesR notes={notes}  />
         : <NoUser />
     }
         </>

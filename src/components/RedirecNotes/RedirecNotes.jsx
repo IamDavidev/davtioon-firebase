@@ -3,50 +3,51 @@ import { GetNotesByCategory } from '../../Firebase/ActionFirebase';
 import { ContextUser } from '../../Utils/context';
 import { useNavigate } from 'react-router-dom';
 const RedirecNotes = () => {
-  const { authUser, setAuthUser, setNotes, notes } = useContext(ContextUser);
   const navigate = useNavigate();
-  const { uid } = authUser;
-  console.log(notes);
   return (
     <div className="Redirectntoes">
       <div className="allNotes">
         <h2>notes</h2>
-        <button>allNotes</button>
+        <button
+          onClick={()=>{
+            navigate('/notes')
+          }}
+        >allNotes</button>
       </div>
       <div className="category">
         <h2>Category</h2>
         <button
-          onClick={() =>
-            GetNotesByCategory({ uid, category: 'daily', setNotes })
-          }
+          onClick={() => {
+            navigate('/notes/category/daily');
+          }}
         >
           daily
         </button>
         <button
-          onClick={() =>
-            GetNotesByCategory({ uid, category: 'ideas', setNotes })
-          }
+          onClick={() => {
+            navigate('/notes/category/ideas');
+          }}
         >
           ideas
         </button>
         <button
-          onClick={() =>
-            GetNotesByCategory({ uid, category: 'school', setNotes })
-          }
+          onClick={() => {
+            navigate('/notes/category/school');
+          }}
         >
           School
         </button>
         <button
-          onClick={() =>
-            GetNotesByCategory({ uid, category: 'work', setNotes })
-          }
+          onClick={() => {
+            navigate('/notes/category/work');
+          }}
         >
           work
         </button>
         <button
-          onClick={() =>
-            GetNotesByCategory({ uid, category: 'others', setNotes })
-          }
+          onClick={() => {
+            navigate('/notes/category/others');
+          }}
         >
           others
         </button>
