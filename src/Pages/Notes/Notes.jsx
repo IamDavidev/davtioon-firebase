@@ -1,5 +1,6 @@
 import { collection, getDocs, query } from 'firebase/firestore';
 import { useContext, useEffect, useState } from 'react';
+import ButtonGoBack from '../../components/buttonGoBack';
 import NotesR from '../../components/NotesR/NotesR';
 import NoUser from '../../components/NoUser';
 import { db } from '../../Firebase/config';
@@ -27,12 +28,14 @@ const Notes = () => {
   }, []);
   return (
     <>
-    {
-      authUser.isLoggedIn === true
-        ? <NotesR notes={notes}  />
-        : <NoUser />
-    }
+      {authUser.isLoggedIn === true ? (
+        <>
+          <NotesR notes={notes} /> <ButtonGoBack />
         </>
+      ) : (
+        <NoUser />
+      )}
+    </>
   );
 };
 

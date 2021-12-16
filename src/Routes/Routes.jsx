@@ -7,6 +7,8 @@ import Register from '../Pages/RegisterUser/Register';
 import Search from '../Pages/Search/Search';
 import NotesAdd from '../components/NotesAdd/NotesAdd';
 import CategoryNotes from '../components/CategoryNotes/CategoryNotes';
+import NotesR from '../components/NotesR/NotesR';
+import NotesById from '../components/notesById/NotesById';
 
 const AppRoutes = () => {
   return (
@@ -18,12 +20,11 @@ const AppRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/notes" element={<Notes />} />
+        <Route path="/notes/searh/id/:id" element={<NotesById />} />
         <Route path="/notes/add" element={<NotesAdd />} />
         <Route path="/register" element={<Register />} />
         <Route path="/notes/search" element={<Search />} />
-        <Route path="/notes/category">
-          <Route path="/notes/category/:category" element={<CategoryNotes />} />
-        </Route>
+        <Route path="/notes/category/:category" element={<CategoryNotes />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,63 +1,59 @@
-import { useContext, useState } from 'react';
-import { GetNotesByCategory } from '../../Firebase/ActionFirebase';
-import { ContextUser } from '../../Utils/context';
 import { useNavigate } from 'react-router-dom';
+import { StyleRedirecNots } from './StyledRedirecNots';
 const RedirecNotes = () => {
   const navigate = useNavigate();
   return (
-    <div className="Redirectntoes">
-      <div className="allNotes">
-        <h2>notes</h2>
-        <button
-          onClick={()=>{
-            navigate('/notes')
-          }}
-        >allNotes</button>
-      </div>
-      <div className="category">
-        <h2>Category</h2>
-        <button
-          onClick={() => {
-            navigate('/notes/category/daily');
-          }}
-        >
-          daily
-        </button>
-        <button
-          onClick={() => {
-            navigate('/notes/category/ideas');
-          }}
-        >
-          ideas
-        </button>
-        <button
-          onClick={() => {
-            navigate('/notes/category/school');
-          }}
-        >
-          School
-        </button>
-        <button
-          onClick={() => {
-            navigate('/notes/category/work');
-          }}
-        >
-          work
-        </button>
-        <button
-          onClick={() => {
-            navigate('/notes/category/others');
-          }}
-        >
-          others
-        </button>
-      </div>
-      <div className="Importante">
-        <h2>In</h2>
+    <StyleRedirecNots>
+      <h2>Notes</h2>
+      <button
+        onClick={() => {
+          navigate('/notes');
+        }}
+      >
+        All Notes
+      </button>
 
-        <button>inportant</button>
-      </div>
-    </div>
+      <h2>Category</h2>
+      <button
+        onClick={() => {
+          navigate('/notes/category/daily');
+        }}
+      >
+        Daily
+      </button>
+      <button
+        onClick={() => {
+          navigate('/notes/category/ideas');
+        }}
+      >
+        Ideas
+      </button>
+      <button
+        onClick={() => {
+          navigate('/notes/category/school');
+        }}
+      >
+        School
+      </button>
+      <button
+        onClick={() => {
+          navigate('/notes/category/work');
+        }}
+      >
+        Work
+      </button>
+      <button
+        onClick={() => {
+          navigate('/notes/category/others');
+        }}
+      >
+        others
+      </button>
+
+      <h2>Important</h2>
+
+      <button>Important</button>
+    </StyleRedirecNots>
   );
 };
 

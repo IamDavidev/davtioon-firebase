@@ -2,6 +2,7 @@ import {
   addDoc,
   collection,
   doc,
+  getDoc,
   getDocs,
   query,
   setDoc,
@@ -22,21 +23,28 @@ export const addNote = async ({ evt, uid, nav }) => {
   nav('/notes');
 };
 
-export const GetNotesAllNotes = ({}) => {};
-
-export const GetNotesByCategory = async ({ uid, category,setNotes }) => {
-  const GetNotes = collection(db, `${uid}`);
-  const queryCategory = query(GetNotes, where('category', '==', category));
-  const querySnapshot = await getDocs(queryCategory);
-  querySnapshot.forEach((not) => {
-    const data = not.data()
-    const id = not.id
-    const note = {id , ...data}
-    setNotes(noteP => [...noteP, note])
+export const ƒGetAllNotes = async ({ authUser, setNotes }) => {
+  const notesAlls = query(collection(db, `${authUser.uid}`));
+  const snapShot = await getDocs(notesAlls);
+  if (authUser.isLoggedIn === false) {
+    return setNotes([]);
+  }
+  snapShot.forEach((not) => {
+    const data = not.data();
+    const id = not.id;
+    const note = { id, ...data };
+    setNotes((prev) => [...prev, note]);
   });
-  return NotesR(querySnapshot);
 };
 
-export const GetNotesByDate = () => {};
+export const ƒgetNote = async ({ id, setNote, authUser }) => {
+  const docRef = doc(db, authUser.uid, id);
+  const docSnap = await getDoc(docRef);
 
-export const GetNotesByImportant = () => {};
+  if (docSnap.exists()) {
+    setNote( [{ id: docSnap.id, ...docSnap.data() }]);
+  } else {
+    // doc.data() will be undefined in this case
+    console.log('No such document!');
+  }
+};
