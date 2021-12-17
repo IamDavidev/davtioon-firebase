@@ -5,6 +5,9 @@ const StyledNav = Styled.nav`
         background-color: ${theme.$primary};      
         display: flex;
         align-items: center;
+        margin:0 3rem;
+        padding: 0.5rem;
+        border-radius: 1rem;
         img{
         width: 25px;
         padding-left: 20px;

@@ -5,54 +5,61 @@ const RedirecNotes = () => {
   return (
     <StyleRedirecNots>
       <h2>Notes</h2>
-      <button
-        onClick={() => {
-          navigate('/notes');
-        }}
-      >
-        All Notes
-      </button>
+      <div className="btnRender">
+        <button
+          onClick={() => {
+            navigate('/notes');
+          }}
+        >
+          All Notes
+        </button>
 
-      <h2>Category</h2>
-      <button
-        onClick={() => {
-          navigate('/notes/category/daily');
-        }}
-      >
-        Daily
-      </button>
-      <button
-        onClick={() => {
-          navigate('/notes/category/ideas');
-        }}
-      >
-        Ideas
-      </button>
-      <button
-        onClick={() => {
-          navigate('/notes/category/school');
-        }}
-      >
-        School
-      </button>
-      <button
-        onClick={() => {
-          navigate('/notes/category/work');
-        }}
-      >
-        Work
-      </button>
-      <button
-        onClick={() => {
-          navigate('/notes/category/others');
-        }}
-      >
-        others
-      </button>
+        <h2>Category</h2>
+        <button
+          onClick={() => {
+            navigate('/notes/category/daily');
+          }}
+        >
+          Daily
+        </button>
+        <button
+          onClick={() => {
+            navigate('/notes/category/ideas');
+          }}
+        >
+          Ideas
+        </button>
+        <button
+          onClick={() => {
+            navigate('/notes/category/school');
+          }}
+        >
+          School
+        </button>
+        <button
+          onClick={() => {
+            navigate('/notes/category/work');
+          }}
+        >
+          Work
+        </button>
+        <button
+          onClick={() => {
+            navigate('/notes/category/others');
+          }}
+        >
+          others
+        </button>
 
-      <h2>Important</h2>
-
-      <button>Important</button>
+        <button
+          className="btnImportant"
+          onClick={() => {
+            navigate('/notes/important');
+          }}
+        >
+          Important
+        </button>
+      </div>
     </StyleRedirecNots>
   );
 };

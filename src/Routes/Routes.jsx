@@ -13,6 +13,7 @@ import NotesById from '../components/notesById/NotesById';
 import Footer from '../components/footer/Footer';
 import { ContextUser } from '../Utils/context';
 import { useContext } from 'react';
+import ImportantNotes from '../components/ImportantsNotes/important';
 //#endregion
 
 const privateRoutes = ({}) => {
@@ -43,6 +44,7 @@ const AppRoutes = () => {
               path="/notes/category/:category"
               element={<CategoryNotes />}
             />
+            <Route path="/notes/important" element={<ImportantNotes />}/>
           </>
         )}
 

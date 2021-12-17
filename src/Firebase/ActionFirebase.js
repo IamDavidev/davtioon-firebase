@@ -42,6 +42,32 @@ export const ƒgetNote = async ({ id, setNote, authUser }) => {
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
-    setNote( [{ id: docSnap.id, ...docSnap.data() }]);
+    setNote([{ id: docSnap.id, ...docSnap.data() }]);
   }
+};
+
+export async function ƒHandleNotesCategroy({authUser,setNotes,category}) {
+  const GetNotes = collection(db, authUser.uid);
+  const GetNotesQuery = query(GetNotes, where('category', '==', category));
+  const GetNotesSnap = await getDocs(GetNotesQuery);
+
+  GetNotesSnap.forEach((note) => {
+    const data = note.data();
+    const id = note.id;
+    const notes = { id, ...data };
+    setNotes((note) => [...note, notes]);
+  });
+}
+
+export const ƒGetImportantsNotes = async ({ authUser, setNotes }) => {
+  const getNotes = collection(db, `${authUser.uid}`);
+  const getSnap = query(getNotes, where('important', '==', true));
+  const getNotesI = await getDocs(getSnap);
+
+  getNotesI.forEach((note) => {
+    const data = note.data();
+    const id = note.id;
+    const notes = { id, ...data };
+    setNotes((prev) => [...prev, notes]);
+  });
 };

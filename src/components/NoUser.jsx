@@ -29,7 +29,7 @@ const NoUser = () => {
   return (
     <NoUserStyled>
       <h1>No user</h1>
-      <p>Please login to view your profile</p>
+      <p>Please login to view your Notes </p>
       <button onClick={HandleLogin}>login</button>
     </NoUserStyled>
   );

@@ -18,7 +18,7 @@ const SyledSearch = styled.div`
     border-radius: 0.5rem;
     font-size: 1rem;
     background: ${theme.$primary};
-    color: ${theme.$pre};
+    color:#fff;
     border: none;
     padding: 0.5rem;
     border-bottom: 3px solid ${theme.$secondary};
@@ -31,7 +31,7 @@ const SyledSearch = styled.div`
     border: none;
     color: ${theme.$pre};
     padding: 0.5rem;
-    margin: 0.5rem;
+    margin-top: 1.8rem;
     font-size: 1.2rem;
     border-bottom: 3px solid ${theme.$secondary};
   }

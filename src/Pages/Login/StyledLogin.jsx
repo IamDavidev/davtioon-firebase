@@ -10,8 +10,9 @@ export const LoginContainer = styled.div`
     border: none;
     margin: 0.3rem;
     border-bottom: 2px solid ${theme.$secondary};
+    color: ${theme.$pre};
     :hover {
-      border-bottom: 2px solid  #0fff;
+      border-bottom: 2px solid  #ffffff;
       transition: all 0.2s ease-in-out;
     }
   }
@@ -19,7 +20,7 @@ export const LoginContainer = styled.div`
     display: grid;
     grid-template-rows: 45% 5% 50%;
     height: 100vh;
-    border-radius: 3px;
+    border-radius: 1rem;
     background: ${theme.$primary};
     box-shadow: 20px 20px 60px #0d2d33, -20px -20px 60px #113d45;
     box-shadow: 0px 0px 10px #000;
@@ -42,6 +43,10 @@ export const LoginContainer = styled.div`
     }
     img {
       width: 30px;
+      margin:.3rem
+    }
+    .iconGithub{
+      color: #ffffff;
     }
     .loginBtn {
       display: flex;
@@ -75,6 +80,7 @@ export const LoginContainer = styled.div`
     display: flex;
     justify-content: center;
     box-shadow: 0px 0px 10px #000;
+    border-radius: 1rem;
     span {
       color: #ff0000;
     }
@@ -96,10 +102,11 @@ export const LoginContainer = styled.div`
       margin: 1rem 10px;
       border-bottom: 2px solid #000000;
       &::placeholder {
-        color: #000000;
+        color: #fff;
       }
     }
     button{
+      color:${theme.$pre};
       margin: 1rem;
       padding: 1rem;
       border: none;
@@ -107,6 +114,11 @@ export const LoginContainer = styled.div`
       font-size: 1.2rem;
       text-transform: uppercase;
       border-bottom: 2px solid ${theme.$secondary};
+      :hover {
+        border-bottom: 2px solid  #ffffff;
+        transition: all 0.2s ease-in-out;
+
+      }
     }
   }
   @media (min-width: 900px) {

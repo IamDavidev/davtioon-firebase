@@ -1,5 +1,4 @@
 //#region  imports
-import types from '../helpers/types';
 import {
   signInWithPopup,
   GoogleAuthProvider,
@@ -8,8 +7,6 @@ import {
 } from 'firebase/auth';
 import { auth } from './config';
 import toast from 'react-hot-toast';
-import { useContext, useState } from 'react';
-import { ContextUser } from '../Utils/context';
 //#endregion
 export const HandleLoginWithGoogle = ({ setUser, navigate }) => {
   const provider = new GoogleAuthProvider();

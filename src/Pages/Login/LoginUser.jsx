@@ -32,7 +32,7 @@ const LoginUser = () => {
           <button onClick={handleLogin}>
             <strong>
               Github
-              <img src={github} alt="" />
+              <img className='iconGithub' src={github} alt="" />
             </strong>
           </button>
           <button

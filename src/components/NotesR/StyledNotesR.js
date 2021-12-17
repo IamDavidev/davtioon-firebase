@@ -72,6 +72,29 @@ const StyledNotesR = Styled.main`
       }
       p{
         font-size: .8rem;  
+        color:#000;
+      }
+      @media (min-width: 900px){
+        .swiper {
+           width: 25rem;
+            height: 35rem;
+        }
+        .swiper-slide {
+
+     font-size: 1rem;
+  
+}
+  h3{
+    font-size: 2rem;
+  }
+  p{
+    font-size: 1rem;
+  }
+  span{
+    font-size: .8rem;
+
+  }
+
       }
 `;
 

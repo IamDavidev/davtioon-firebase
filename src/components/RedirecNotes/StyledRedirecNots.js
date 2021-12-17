@@ -3,23 +3,37 @@ import { theme } from '../../StyledMain';
 
 export const StyleRedirecNots = styled.main`
   background: ${theme.$primary};
-  margin:1rem 2rem;
+  margin: 1rem 2rem;
   border-radius: 1rem;
   padding: 3rem 0;
-  h2{
-    color:${theme.$tertiary};
-    font-size:2rem;
+  h2 {
+    color: ${theme.$tertiary};
+    font-size: 2rem;
+    margin:0;
   }
-  button{
+  .btnRender{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+  }
+  button {
     background: ${theme.$primary};
-    border:none;
-    color:${theme.$pre};
-    border-bottom: 1px solid ${theme.$tertiary};
-    margin:0.5rem;  
+    border: none;
+    color: ${theme.$pre};
+    font-weight:bold;
+    border-bottom: 2px solid ${theme.$secondary};
+    margin:1rem;
     font-size: 1.2rem;
+    display:block;
+    width:6rem;
+    :hover{
+      border-bottom: 2px solid #fff
+    }
   }
+  .btnImportant{
+    margin-top:4rem
+
+}
 `;
-
-
-
-

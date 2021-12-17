@@ -1,5 +1,5 @@
-import { useContext } from 'react'
-import {addNote} from '../../Firebase/ActionFirebase'
+import { useContext } from 'react';
+import { addNote } from '../../Firebase/ActionFirebase';
 import { ContextUser } from '../../Utils/context';
 import AddNote from './StyledAddNote';
 import {
@@ -10,7 +10,7 @@ import {
 } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 const NotesAdd = () => {
-  const { authUser, setAuthUser } = useContext(ContextUser);
+  const { authUser } = useContext(ContextUser);
   const navigate = useNavigate();
   const HandleAddNote = (evt) => {
     evt.preventDefault();
@@ -23,11 +23,17 @@ const NotesAdd = () => {
         <div className="inputGroup">
           <label>
             <MdTitle />
-            <input placeholder="Title" type="text" name="title" required autoComplete />
+            <input
+              placeholder="Title"
+              type="text"
+              name="title"
+              required
+              autoComplete
+            />
           </label>
           <label className="impCheck">
             Important
-            <input type="checkbox" value={true} name="important"  autoComplete/>
+            <input type="checkbox" value={true} name="important" autoComplete />
           </label>
           <label>
             <MdCategory />

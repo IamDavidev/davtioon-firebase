@@ -9,8 +9,8 @@ const ButtonGoBackS = styled.div`
   button {
     background: ${theme.$primary};
     border: none;
+    padding:.5rem 6rem;
     border-radius: 1rem;
-    padding: 1rem;
     width: 3rem;
     color: ${theme.$pre};
   }

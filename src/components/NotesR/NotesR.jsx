@@ -2,11 +2,8 @@ import { MdAdd } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import StyledNotesR from './StyledNotesR';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-cards';
-
-// import Swiper core and required modules
 import SwiperCore, { EffectCards } from 'swiper';
 
 // install Swiper modules
@@ -17,7 +14,6 @@ const NotesR = ({ notes, Tnotes }) => {
   const ƒHandleAdd = () => {
     navigate('/notes/add');
   };
-
   return (
     <StyledNotesR>
       <h1>{Tnotes || 'Notes'} </h1>

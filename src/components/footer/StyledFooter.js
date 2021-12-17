@@ -6,6 +6,11 @@ export const StyledFooter = styled.footer`
   flex-direction: column;
   text-align: center;
   justify-content: center;
+  background-color: ${theme.$primary};
+  margin: auto 3rem;
+  border-radius:1rem;
+  color:white;
+  padding:.5rem;
   a {
     color: ${theme.$pre};
     padding:0 2rem;

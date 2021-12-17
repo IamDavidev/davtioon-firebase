@@ -8,7 +8,3 @@ export const StateContext = {
   uid: '',
   isLoggedIn: false,
 };
-
-export const ContextNotes = createContext([]);
-
-export const StateNotes = [];
