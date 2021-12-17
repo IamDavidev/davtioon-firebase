@@ -38,7 +38,6 @@ const AppRoutes = () => {
             <Route path="/notes" element={<Notes />} />
             <Route path="/notes/searh/id/:id" element={<NotesById />} />
             <Route path="/notes/add" element={<NotesAdd />} />
-            <Route path="/register" element={<Register />} />
             <Route path="/notes/search" element={<Search />} />
             <Route
               path="/notes/category/:category"
@@ -50,6 +49,7 @@ const AppRoutes = () => {
 
         <Route path="*" element={<Login />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
     </BrowserRouter>

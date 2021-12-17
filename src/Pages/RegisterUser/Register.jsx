@@ -26,7 +26,7 @@ const Register = () => {
             required
             type="text"
             name="firstName"
-            placeholder="firstName"  autoComplete
+            placeholder="firstName"  autoComplete='on'
           />
         </label>
         <label className="inputRegister">
