@@ -1,16 +1,20 @@
-import { StyledNoUser } from "./StyledLogin"
+import { useContext } from 'react';
+import { ContextUser, StateContext } from '../../Utils/context';
+import { StyledNoUser } from './StyledLogin';
 
 const LogiNoUSer = () => {
-    return (
-        <StyledNoUser>
-            <h1>logout</h1>
-            <p>
-                You are not logged in.
-            </p>
-            
+  const { authUser, setAuthUser } = useContext(ContextUser);
+  const loggout = () => {
+    setAuthUser(StateContext);
+  };
 
-        </StyledNoUser>
-    )   
-}
+  return (
+    <StyledNoUser>
+      <h1>logout</h1>
+      <p>logout from your account</p>
+      <button onClick={loggout}>loggout</button>
+    </StyledNoUser>
+  );
+};
 
-export default LogiNoUSer
+export default LogiNoUSer;

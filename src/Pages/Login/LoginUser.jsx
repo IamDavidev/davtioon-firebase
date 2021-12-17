@@ -1,4 +1,3 @@
-import { LoginContainer } from './StyledLogin';
 import github from '../../Assets/github.svg';
 import google from '../../Assets/google.svg';
 import { useNavigate } from 'react-router';
@@ -7,19 +6,16 @@ import {
   HandleLoginWithGoogle,
 } from '../../Firebase/FirebaseAuth';
 import { Link } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../Firebase/config';
 import { useContext } from 'react';
 import { ContextUser } from '../../Utils/context';
 
 const LoginUser = () => {
-    const navigate = useNavigate();
-  const { authUser, setAuthUser } = useContext(ContextUser);
+  const navigate = useNavigate();
+  const { setAuthUser } = useContext(ContextUser);
   const handleLogin = (e) => {
     dispatch(HandleLogin('hola', 'uid', 'email'));
   };
-  return(
+  return (
     <div className="login">
       <div className="wlogin">
         <h1>

@@ -129,10 +129,10 @@ export const LoginContainer = styled.div`
 
 
 export const StyledNoUser = styled.div`
-  
-
-bakcground: ${theme.$primary};
-color: #0ff;
+background: ${theme.$primary};
+color: #000000;
+padding:1rem;
+border-radius: 1rem;
 
 
 

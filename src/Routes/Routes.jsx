@@ -1,3 +1,4 @@
+//#region --------------( imports: )--------------
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from '../Pages/Login/Login';
 import Home from '../Pages/Home/Home';
@@ -10,22 +11,43 @@ import CategoryNotes from '../components/CategoryNotes/CategoryNotes';
 import NotesR from '../components/NotesR/NotesR';
 import NotesById from '../components/notesById/NotesById';
 import Footer from '../components/footer/Footer';
+import { ContextUser } from '../Utils/context';
+import { useContext } from 'react';
+//#endregion
+
+const privateRoutes = ({}) => {
+  const { authUser } = useContext(ContextUser);
+  if (authUser.isLoggedIn) {
+    return <AppRoutes />;
+  }
+  return <Login />;
+};
 
 const AppRoutes = () => {
+  const { authUser } = useContext(ContextUser);
   return (
     <BrowserRouter>
       {/* {location.pathname === '/login' ? '' : <NavBar />} */}
       <NavBar />
       <Routes>
-        <Route path="*" element={<Navigate replace to="/login" />} />
+        {authUser.isLoggedIn && (
+          <>
+            <Route path="*" element={<Navigate replace to="/login" />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/notes" element={<Notes />} />
+            <Route path="/notes/searh/id/:id" element={<NotesById />} />
+            <Route path="/notes/add" element={<NotesAdd />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/notes/search" element={<Search />} />
+            <Route
+              path="/notes/category/:category"
+              element={<CategoryNotes />}
+            />
+          </>
+        )}
+
+        <Route path="*" element={<Login />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/notes" element={<Notes />} />
-        <Route path="/notes/searh/id/:id" element={<NotesById />} />
-        <Route path="/notes/add" element={<NotesAdd />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/notes/search" element={<Search />} />
-        <Route path="/notes/category/:category" element={<CategoryNotes />} />
       </Routes>
       <Footer />
     </BrowserRouter>
