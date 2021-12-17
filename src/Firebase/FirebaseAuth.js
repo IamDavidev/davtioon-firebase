@@ -41,11 +41,9 @@ export const HandleRegisterUser = ({evt,setUser,navigate}) => {
   const password = evt.target.password.value;
   const confirmPassword = evt.target.confirmPassword.value;
   if (password !== confirmPassword) {
-    console.log('Password does not match');
     return toast.error('Passwords do not match');
   }
   if (password.length < 6) {
-    console.log('Password must be at least 6 characters');
     return toast.error('Password must be at least 6 characters');
   }
   createUserWithEmailAndPassword(auth, email, password)
@@ -75,7 +73,6 @@ export const HandleAccesUser = ({ evt, setUser, navigate }) => {
       const { uid } = user;
       const name = user.displayName || ' ';
       const email = user.email;
-      console.log(user);
       setUser({
         name,
         email,
@@ -86,8 +83,7 @@ export const HandleAccesUser = ({ evt, setUser, navigate }) => {
     })
     .catch((err) => {
       const errorcode = err.code;
-      const errormessage = err.message;
-      console.log(errormessage);
+      const errormessage = err.message;;
       return toast.error(err.message);
     });
 };

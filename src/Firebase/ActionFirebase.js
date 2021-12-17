@@ -43,8 +43,5 @@ export const ƒgetNote = async ({ id, setNote, authUser }) => {
 
   if (docSnap.exists()) {
     setNote( [{ id: docSnap.id, ...docSnap.data() }]);
-  } else {
-    // doc.data() will be undefined in this case
-    console.log('No such document!');
   }
 };

@@ -11,39 +11,6 @@ import { HandleRegisterUser } from '../../Firebase/FirebaseAuth';
 const Register = () => {
   const navigate = useNavigate();
   const { authUser, setAuthUser } = useContext(ContextUser);
-  // const HandleRegisterUser = (evt) => {
-  //   evt.preventDefault();
-  //   const name = evt.target.firstName.value;
-  //   const lastName = evt.target.lastName.value;
-  //   const email = evt.target.email.value;
-  //   const password = evt.target.password.value;
-  //   const confirmPassword = evt.target.confirmPassword.value;
-  //   if (password !== confirmPassword) {
-  //     console.log('Password does not match');
-  //     return toast.error('Passwords do not match');
-  //   }
-  //   if (password.length < 6) {
-  //     console.log('Password must be at least 6 characters');
-  //     return toast.error('Password must be at least 6 characters');
-  //   }
-  //   createUserWithEmailAndPassword(auth, email, password)
-  //     .then(({ user }) => {
-  //       const userData = {
-  //         name,
-  //         email,
-  //         uid: user.uid,
-  //         isLoggedIn: true,
-  //       };
-  //       setAuthUser(userData);
-  //       return navigate('/home');
-  //     })
-  //     .catch((err) => {
-  //       const errorcode = err.code;
-  //       const errormessage = err.message;
-  //     });
-  // };
-
-
 
   return (
     <StyledRegister>
@@ -59,16 +26,16 @@ const Register = () => {
             required
             type="text"
             name="firstName"
-            placeholder="firstName"
+            placeholder="firstName"  autoComplete
           />
         </label>
         <label className="inputRegister">
           <IoMdPerson className="icon" />
-          <input required type="text" name="lastName" placeholder="lastName" />
+          <input required type="text" name="lastName" placeholder="lastName" autoComplete='on' />
         </label>
         <label className="inputRegister">
           <IoIosMail className="icon" />
-          <input required type="text" name="email" placeholder="email" />
+          <input required type="text" name="email" placeholder="email" autoComplete='on' />
         </label>
         <label className="inputRegister">
           <MdPassword className="icon" />
@@ -77,7 +44,7 @@ const Register = () => {
             type="password"
             name="password"
             placeholder="password"
-            autoComplete="on"
+            autoComplete="on" 
           />
         </label>
         <label className="inputRegister">
@@ -87,7 +54,7 @@ const Register = () => {
             type="password"
             name="confirmPassword"
             placeholder="confirm Password"
-            autoComplete="on"
+            autoComplete="on" 
           />
         </label>
         <button> OK </button>

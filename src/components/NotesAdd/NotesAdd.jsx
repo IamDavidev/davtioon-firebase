@@ -23,11 +23,11 @@ const NotesAdd = () => {
         <div className="inputGroup">
           <label>
             <MdTitle />
-            <input placeholder="Title" type="text" name="title" required />
+            <input placeholder="Title" type="text" name="title" required autoComplete />
           </label>
           <label className="impCheck">
             Important
-            <input type="checkbox" value={true} name="important" />
+            <input type="checkbox" value={true} name="important"  autoComplete/>
           </label>
           <label>
             <MdCategory />

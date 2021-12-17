@@ -1,9 +1,7 @@
-import { Provider } from 'react-redux';
+
 import AppRoutes from './Routes/Routes';
 import { AppStyled } from './StyledMain';
-import { store } from './Store/Store';
 import {
-  ContextNotes,
   ContextUser,
   StateContext,
   StateNotes,
@@ -14,13 +12,11 @@ const App = () => {
   const [authUser, setAuthUser] = useState(StateContext);
   const [notes, setNotes] = useState(StateNotes);
   return (
-    <ContextUser.Provider value={{ authUser, setAuthUser,notes,setNotes }}>
-      {/* <ContextNotes.provider value={{ notes, setNotes }}> */}
-        <AppStyled>
-          <AppRoutes />
-        </AppStyled>
-      {/* </ContextNotes.provider> */}
-     </ContextUser.Provider>
+    <ContextUser.Provider value={{ authUser, setAuthUser, notes, setNotes }}>
+      <AppStyled>
+        <AppRoutes />
+      </AppStyled>
+    </ContextUser.Provider>
   );
 };
 

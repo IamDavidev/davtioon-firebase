@@ -63,13 +63,15 @@ const LoginUser = () => {
             required
             type="email"
             placeholder="Email or user name"
-            name="email"
+            name="email" 
+            autoComplete='on'
           />
           <input
             required
             type="password"
             placeholder="Password"
-            name="password"
+            name="password" 
+            autoComplete='on'
           />
           <button>login</button>
         </form>

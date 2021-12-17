@@ -17,7 +17,7 @@ const NotesR = ({ notes, Tnotes }) => {
   const ƒHandleAdd = () => {
     navigate('/notes/add');
   };
-  console.log(notes);
+
   return (
     <StyledNotesR>
       <h1>{Tnotes || 'Notes'} </h1>

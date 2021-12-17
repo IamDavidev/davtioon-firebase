@@ -36,6 +36,7 @@ const Search = () => {
             type="text"
             name="search"
             className="inputSearch"
+            autoComplete='on'
           />
         </label>
 
