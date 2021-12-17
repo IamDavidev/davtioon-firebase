@@ -127,4 +127,13 @@ export const LoginContainer = styled.div`
   }
 `;
 
-//
+
+export const StyledNoUser = styled.div`
+  
+
+bakcground: ${theme.$primary};
+color: #0ff;
+
+
+
+`

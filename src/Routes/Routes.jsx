@@ -9,6 +9,7 @@ import NotesAdd from '../components/NotesAdd/NotesAdd';
 import CategoryNotes from '../components/CategoryNotes/CategoryNotes';
 import NotesR from '../components/NotesR/NotesR';
 import NotesById from '../components/notesById/NotesById';
+import Footer from '../components/footer/Footer';
 
 const AppRoutes = () => {
   return (
@@ -26,6 +27,7 @@ const AppRoutes = () => {
         <Route path="/notes/search" element={<Search />} />
         <Route path="/notes/category/:category" element={<CategoryNotes />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };

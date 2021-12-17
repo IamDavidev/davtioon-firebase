@@ -7,46 +7,52 @@ import { ContextUser } from '../../Utils/context';
 import { useContext } from 'react';
 import { auth } from '../../Firebase/config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-
+import { HandleRegisterUser } from '../../Firebase/FirebaseAuth';
 const Register = () => {
   const navigate = useNavigate();
   const { authUser, setAuthUser } = useContext(ContextUser);
-  const HandleRegisterUser = (evt) => {
-    evt.preventDefault();
-    const name = evt.target.firstName.value;
-    const lastName = evt.target.lastName.value;
-    const email = evt.target.email.value;
-    const password = evt.target.password.value;
-    const confirmPassword = evt.target.confirmPassword.value;
-    if (password !== confirmPassword) {
-      console.log('Password does not match');
-      return toast.error('Passwords do not match');
-    }
-    if (password.length < 6) {
-      console.log('Password must be at least 6 characters');
-      return toast.error('Password must be at least 6 characters');
-    }
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        const userData = {
-          name,
-          email,
-          uid: user.uid,
-          isLoggedIn: true,
-        };
-        setAuthUser(userData);
-        console.log(authUser);
-        return navigate('/home');
-      })
-      .catch((err) => {
-        const errorcode = err.code;
-        const errormessage = err.message;
-      });
-  };
+  // const HandleRegisterUser = (evt) => {
+  //   evt.preventDefault();
+  //   const name = evt.target.firstName.value;
+  //   const lastName = evt.target.lastName.value;
+  //   const email = evt.target.email.value;
+  //   const password = evt.target.password.value;
+  //   const confirmPassword = evt.target.confirmPassword.value;
+  //   if (password !== confirmPassword) {
+  //     console.log('Password does not match');
+  //     return toast.error('Passwords do not match');
+  //   }
+  //   if (password.length < 6) {
+  //     console.log('Password must be at least 6 characters');
+  //     return toast.error('Password must be at least 6 characters');
+  //   }
+  //   createUserWithEmailAndPassword(auth, email, password)
+  //     .then(({ user }) => {
+  //       const userData = {
+  //         name,
+  //         email,
+  //         uid: user.uid,
+  //         isLoggedIn: true,
+  //       };
+  //       setAuthUser(userData);
+  //       return navigate('/home');
+  //     })
+  //     .catch((err) => {
+  //       const errorcode = err.code;
+  //       const errormessage = err.message;
+  //     });
+  // };
+
+
+
   return (
     <StyledRegister>
       <h1>Register</h1>
-      <form onSubmit={HandleRegisterUser}>
+      <form
+        onSubmit={(evt) =>
+          HandleRegisterUser({ evt, setUser: setAuthUser, navigate })
+        }
+      >
         <label className="inputRegister">
           <IoMdPerson className="icon" />
           <input

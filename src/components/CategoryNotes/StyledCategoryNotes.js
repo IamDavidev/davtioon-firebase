@@ -9,4 +9,5 @@ export const StyledCategory = styled.h1`
     border-radius: 1rem;
     color: ${theme.$pre};
     font-size: 1.5rem;
+    padding:.6rem;
 `

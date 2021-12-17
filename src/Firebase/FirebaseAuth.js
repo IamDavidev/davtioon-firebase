@@ -1,22 +1,29 @@
 //#region  imports
-import types from './types';
+import types from '../helpers/types';
 import {
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { auth } from '../Firebase/config';
+import { auth } from './config';
 import toast from 'react-hot-toast';
 import { useContext, useState } from 'react';
 import { ContextUser } from '../Utils/context';
 //#endregion
-
-export const HandleLoginWithGoogle = () => {
+export const HandleLoginWithGoogle = ({ setUser, navigate }) => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
     .then((res) => {
-        console.log(res);
+      const { displayName, uid, email } = res.user;
+
+      setUser({
+        name: displayName,
+        email,
+        uid,
+        isLoggedIn: true,
+      });
+      navigate('/home');
     })
     .catch((err) => {
       const errorCode = err.code;
@@ -26,20 +33,9 @@ export const HandleLoginWithGoogle = () => {
     });
   // };
 };
-
-export const HandleLogin = (uid, name, email) => {
-  return {
-    payload: {
-      uid,
-      name,
-      email,
-    },
-    type: types.LOGIN,
-  };
-};
-
-export const HandleRegisterUser = ({ evt, navigate, dispatch }) => {
-  const firstName = evt.target.firstName.value;
+export const HandleRegisterUser = ({evt,setUser,navigate}) => {
+  evt.preventDefault();
+  const name = evt.target.firstName.value;
   const lastName = evt.target.lastName.value;
   const email = evt.target.email.value;
   const password = evt.target.password.value;
@@ -53,41 +49,45 @@ export const HandleRegisterUser = ({ evt, navigate, dispatch }) => {
     return toast.error('Password must be at least 6 characters');
   }
   createUserWithEmailAndPassword(auth, email, password)
-    .then(async (credential) => {
-      const { uid } = credential.user;
-
-      await credential.user.updateProfile({
-        displayName: `${firstName} ${lastName}`,
-      });
-      navigate('/home');
-      return await dispatch(
-        HandleLogin(uid, `${firstName} ${lastName}`),
-        email
-      );
+    .then(({ user }) => {
+      const userData = {
+        name,
+        email,
+        uid: user.uid,
+        isLoggedIn: true,
+      };
+      setUser(userData);
+      return navigate('/home');
     })
     .catch((err) => {
-      
       const errorcode = err.code;
       const errormessage = err.message;
+      return toast.error(errormessage);
     });
 };
 
-export const HandleAccesUser = ({ evt, navigate }) => {
+export const HandleAccesUser = ({ evt, setUser, navigate }) => {
   evt.preventDefault();
   const mail = evt.target.email.value;
   const password = evt.target.password.value;
   signInWithEmailAndPassword(auth, mail, password)
-    .then((AccesUser) => {
-      const user = AccesUser.user;
+    .then(({ user }) => {
       const { uid } = user;
+      const name = user.displayName || ' ';
+      const email = user.email;
+      console.log(user);
+      setUser({
+        name,
+        email,
+        uid,
+        isLoggedIn: true,
+      });
+      return navigate('/home');
     })
     .catch((err) => {
       const errorcode = err.code;
       const errormessage = err.message;
-      console.log('user did not sign up correctly');
-      console.log(err.code);
-      console.log(err.message);
+      console.log(errormessage);
       return toast.error(err.message);
     });
-  nav && navigate('/home');
 };
