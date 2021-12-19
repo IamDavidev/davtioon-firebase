@@ -1,14 +1,13 @@
 import {
   addDoc,
   collection,
+  deleteDoc,
   doc,
   getDoc,
   getDocs,
   query,
-  setDoc,
   where,
 } from 'firebase/firestore';
-import NotesR from '../components/NotesR/NotesR';
 import { db } from './config';
 
 export const addNote = async ({ evt, uid, nav }) => {
@@ -71,3 +70,9 @@ export const ƒGetImportantsNotes = async ({ authUser, setNotes }) => {
     setNotes((prev) => [...prev, notes]);
   });
 };
+
+
+export const ƒDeleteNote = async ({user,id, navigate}) => {
+  await deleteDoc(doc(db, user.uid, id));
+  navigate('/home');
+}

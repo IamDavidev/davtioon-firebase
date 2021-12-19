@@ -23,7 +23,7 @@ export const StyleRedirecNots = styled.main`
     border: none;
     color: ${theme.$pre};
     font-weight:bold;
-    border-bottom: 2px solid ${theme.$secondary};
+    border-bottom: 2px solid #00f;
     margin:1rem;
     font-size: 1.2rem;
     display:block;

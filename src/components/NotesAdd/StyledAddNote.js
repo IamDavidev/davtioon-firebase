@@ -72,6 +72,9 @@ const AddNote = Styled.div`
        :focus{
               outline:none;
        }
+       :active{
+           color:${theme.$pre};
+       }
    }
    .inputGroup{
          display:flex;
@@ -84,9 +87,10 @@ const AddNote = Styled.div`
     border: none;
     margin: 0.3rem;
     border-bottom: 2px solid ${theme.$secondary};
-    font-size: 1.2rem;
+    font-size: 2rem;
+    color: ${theme.$pre};
     :hover {
-      border-bottom: 2px solid  #0fff;
+      border-bottom: 2px solid  #fff;
       transition: all 0.2s ease-in-out;
     }
 }

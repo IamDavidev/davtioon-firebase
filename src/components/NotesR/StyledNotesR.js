@@ -55,6 +55,7 @@ const StyledNotesR = Styled.main`
         font-weight: bold;
         padding-top:1rem;
         color: ${theme.$pre};
+        margin:0 auto;
       }
       .titleI{
         color: #f00
@@ -63,37 +64,46 @@ const StyledNotesR = Styled.main`
         font-size: .3rem;
         display:flex;
         justify-content: flex-end;
-        padding-top:3rem;
-
+        color:${theme.$primary};
+        font-weight:bold;
       }
       strong{
         display:flex;
         justify-content:flex-start;
+        color:${theme.$primary};
+        font-weight:bold;
       }
       p{
-        font-size: .8rem;  
         color:#000;
+        margin:0;
+      }
+      button{
+        display:flex;
+        justify-content:flex-end;
+        background:none;
+        border:none;
+        color: #000;
+        /* margin-top:1rem; */
+        font-size: 2rem;
       }
       @media (min-width: 900px){
         .swiper {
-           width: 25rem;
-            height: 35rem;
-        }
+          width: 25rem;
+          height: 35rem;
+      }
         .swiper-slide {
-
-     font-size: 1rem;
-  
-}
-  h3{
-    font-size: 2rem;
-  }
-  p{
-    font-size: 1rem;
-  }
-  span{
-    font-size: .8rem;
-
-  }
+          font-size: 1rem;
+      }
+      h3{
+          font-size: 2rem;
+      }
+      p{
+          font-size: 1rem;
+      }
+      span{
+          font-size: .8rem;
+          padding-top:3rem;
+        }
 
       }
 `;
