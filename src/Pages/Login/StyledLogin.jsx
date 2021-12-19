@@ -5,6 +5,12 @@ export const LoginContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 1.5rem 3rem;
+  a{
+    display: block;
+    padding:1rem;
+    color: ${theme.$extra};
+    outline:none;
+  }
   button {
     background: fixed;
     border: none;
@@ -50,7 +56,7 @@ export const LoginContainer = styled.div`
     }
     .loginBtn {
       display: flex;
-      margin: 1rem;
+     margin: 1rem;
       justify-content: center;
       align-items: center;
       strong {

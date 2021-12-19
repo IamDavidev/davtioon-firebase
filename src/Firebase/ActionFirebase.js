@@ -9,7 +9,6 @@ import {
   where,
 } from 'firebase/firestore';
 import { db } from './config';
-
 export const addNote = async ({ evt, uid, nav }) => {
   const pruebaref = collection(db, `${uid}`);
   await addDoc(pruebaref, {
@@ -21,7 +20,6 @@ export const addNote = async ({ evt, uid, nav }) => {
   });
   nav('/notes');
 };
-
 export const ƒGetAllNotes = async ({ authUser, setNotes }) => {
   const notesAlls = query(collection(db, `${authUser.uid}`));
   const snapShot = await getDocs(notesAlls);
@@ -35,7 +33,6 @@ export const ƒGetAllNotes = async ({ authUser, setNotes }) => {
     setNotes((prev) => [...prev, note]);
   });
 };
-
 export const ƒgetNote = async ({ id, setNote, authUser }) => {
   const docRef = doc(db, authUser.uid, id);
   const docSnap = await getDoc(docRef);
@@ -44,7 +41,6 @@ export const ƒgetNote = async ({ id, setNote, authUser }) => {
     setNote([{ id: docSnap.id, ...docSnap.data() }]);
   }
 };
-
 export async function ƒHandleNotesCategroy({authUser,setNotes,category}) {
   const GetNotes = collection(db, authUser.uid);
   const GetNotesQuery = query(GetNotes, where('category', '==', category));
@@ -57,7 +53,6 @@ export async function ƒHandleNotesCategroy({authUser,setNotes,category}) {
     setNotes((note) => [...note, notes]);
   });
 }
-
 export const ƒGetImportantsNotes = async ({ authUser, setNotes }) => {
   const getNotes = collection(db, `${authUser.uid}`);
   const getSnap = query(getNotes, where('important', '==', true));
@@ -70,8 +65,6 @@ export const ƒGetImportantsNotes = async ({ authUser, setNotes }) => {
     setNotes((prev) => [...prev, notes]);
   });
 };
-
-
 export const ƒDeleteNote = async ({user,id, navigate}) => {
   await deleteDoc(doc(db, user.uid, id));
   navigate('/home');
