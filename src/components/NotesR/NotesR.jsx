@@ -1,4 +1,4 @@
-import { MdAdd,MdDelete } from 'react-icons/md';
+import { MdAdd, MdDelete } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import StyledNotesR from './StyledNotesR';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,7 +12,7 @@ import { ContextUser } from '../../Utils/context';
 SwiperCore.use([EffectCards]);
 
 const NotesR = ({ notes, Tnotes }) => {
-  const {authUser} = useContext(ContextUser);
+  const { authUser } = useContext(ContextUser);
   const navigate = useNavigate();
   const ƒHandleAdd = () => {
     navigate('/notes/add');
@@ -37,12 +37,15 @@ const NotesR = ({ notes, Tnotes }) => {
                   ) : (
                     <h3>{note.title}</h3>
                   )}
-                  <p>{note.content}</p>
+                  <div className="contentNote">
+                    <p>{note.content}</p>
+                  </div>
                   <span>{note.id}</span>
-                  <button onClick={
-                      () => ƒDeleteNote({user:authUser,id:note.id,navigate})
-
-                  }>
+                  <button
+                    onClick={() =>
+                      ƒDeleteNote({ user: authUser, id: note.id, navigate })
+                    }
+                  >
                     <MdDelete />
                   </button>
                 </div>

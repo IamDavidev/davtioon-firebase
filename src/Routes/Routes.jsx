@@ -33,7 +33,6 @@ const AppRoutes = () => {
       <Routes>
         {authUser.isLoggedIn && (
           <>
-            <Route path="*" element={<Navigate replace to="/login" />} />
             <Route path="/home" element={<Home />} />
             <Route path="/notes" element={<Notes />} />
             <Route path="/notes/searh/id/:id" element={<NotesById />} />
@@ -46,8 +45,7 @@ const AppRoutes = () => {
             <Route path="/notes/important" element={<ImportantNotes />}/>
           </>
         )}
-
-        <Route path="*" element={<Login />} />
+        <Route path="*" element={<Navigate replace to="/login" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>

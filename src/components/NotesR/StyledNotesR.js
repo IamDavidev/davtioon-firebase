@@ -12,7 +12,7 @@ const StyledNotesR = Styled.main`
             margin:1rem;
         }
 .swiper {
-  width: 10rem;
+  width: 12rem;
   height: 18rem;
 }
 
@@ -73,9 +73,18 @@ const StyledNotesR = Styled.main`
         color:${theme.$primary};
         font-weight:bold;
       }
+      .contentNote{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        width:10rem;
+        max-width:12rem;
+      } 
       p{
         color:#000;
         margin:0;
+        height:10rem;
+        width:10rem;
       }
       button{
         display:flex;
