@@ -1,5 +1,6 @@
 import { collection, getDocs, query } from 'firebase/firestore';
 import { useContext, useEffect, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import ButtonGoBack from '../../components/buttonGoBack';
 import NotesR from '../../components/NotesR/NotesR';
 import NoUser from '../../components/NoUser';
@@ -33,7 +34,7 @@ const Notes = () => {
           <NotesR notes={notes} /> <ButtonGoBack />
         </>
       ) : (
-        <NoUser />
+        <Navigate replace to="/login" />
       )}
     </>
   );

@@ -12,14 +12,14 @@ const LogiNoUSer = () => {
   return (
     <StyledNoUser>
       <h1>logout</h1>
-      <p>logout from your account</p>
+      <span>logout from your account</span>
       <Link to="/home">
         Home
       </Link>
       <Link to="/notes/add">
         add notes 
       </Link>
-      <button onClick={loggout}>loggout</button>
+      <button onClick={loggout}>Logout</button>
     </StyledNoUser>
   );
 };

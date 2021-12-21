@@ -5,11 +5,11 @@ export const LoginContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 1.5rem 3rem;
-  a{
+  a {
     display: block;
-    padding:1rem;
+    padding: 1rem;
     color: ${theme.$extra};
-    outline:none;
+    outline: none;
   }
   button {
     background: fixed;
@@ -18,7 +18,7 @@ export const LoginContainer = styled.div`
     border-bottom: 2px solid ${theme.$secondary};
     color: ${theme.$pre};
     :hover {
-      border-bottom: 2px solid  #ffffff;
+      border-bottom: 2px solid #ffffff;
       transition: all 0.2s ease-in-out;
     }
   }
@@ -49,14 +49,14 @@ export const LoginContainer = styled.div`
     }
     img {
       width: 30px;
-      margin:.3rem
+      margin: 0.3rem;
     }
-    .iconGithub{
+    .iconGithub {
       color: #ffffff;
     }
     .loginBtn {
       display: flex;
-     margin: 1rem;
+      margin: 1rem;
       justify-content: center;
       align-items: center;
       strong {
@@ -111,19 +111,18 @@ export const LoginContainer = styled.div`
         color: #fff;
       }
     }
-    button{
-      color:${theme.$pre};
+    button {
+      color: ${theme.$pre};
       margin: 1rem;
       padding: 1rem;
       border: none;
-      box-shadow:none;
+      box-shadow: none;
       font-size: 1.2rem;
       text-transform: uppercase;
       border-bottom: 2px solid ${theme.$secondary};
       :hover {
-        border-bottom: 2px solid  #ffffff;
+        border-bottom: 2px solid #ffffff;
         transition: all 0.2s ease-in-out;
-
       }
     }
   }
@@ -145,13 +144,22 @@ export const LoginContainer = styled.div`
   }
 `;
 
-
 export const StyledNoUser = styled.div`
-background: ${theme.$primary};
-color: #000000;
-padding:1rem;
-border-radius: 1rem;
-
-
-
-`
+  background: ${theme.$primary};
+  color: #000000;
+  padding: 1rem;
+  border-radius: 1rem;
+  h1{
+    color:#ffff
+  }
+  span {
+    color: ${theme.$tertiary};
+  }
+  a {
+    color: ${theme.$tertiary};
+  }
+  button {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #fff;
+  }
+`;

@@ -1,16 +1,7 @@
-import {
-  addDoc,
-  collection,
-  getDoc,
-  getDocs,
-  setDoc,
-} from 'firebase/firestore';
-import { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import NoUser from '../../components/NoUser';
+import { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
 import RedirecNotes from '../../components/RedirecNotes/RedirecNotes';
-import { db } from '../../Firebase/config';
-import { ContextUser, Nouser } from '../../Utils/context';
+import { ContextUser } from '../../Utils/context';
 const Home = () => {
   const { authUser, setAuthUser } = useContext(ContextUser);
   return (
@@ -20,7 +11,7 @@ const Home = () => {
           <RedirecNotes />
         </>
       ) : (
-        <NoUser />
+        <Navigate replace to="/login" />
       )}
     </div>
   );

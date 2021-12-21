@@ -96,6 +96,8 @@ const StyledNotesR = Styled.main`
             outline:none;
         }
      }
+
+     
       button{
         display:flex;
         justify-content:flex-start;
@@ -106,13 +108,20 @@ const StyledNotesR = Styled.main`
         font-size: 2rem;
         cursor:pointer;
       }
-      @media (min-width: 900px){
+
+
+@media (min-width: 900px){
         .swiper {
           width: 25rem;
           height: 35rem;
       }
         .swiper-slide {
           font-size: 1rem;
+      }
+      .btnAdd{
+        button{
+          font-size:3rem
+        }
       }
       textarea{
         width:15rem;

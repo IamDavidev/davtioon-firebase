@@ -31,21 +31,16 @@ const AppRoutes = () => {
       {/* {location.pathname === '/login' ? '' : <NavBar />} */}
       <NavBar />
       <Routes>
-        {authUser.isLoggedIn && (
-          <>
-            <Route path="/home" element={<Home />} />
-            <Route path="/notes" element={<Notes />} />
-            <Route path="/notes/searh/id/:id" element={<NotesById />} />
-            <Route path="/notes/add" element={<NotesAdd />} />
-            <Route path="/notes/search" element={<Search />} />
-            <Route
-              path="/notes/category/:category"
-              element={<CategoryNotes />}
-            />
-            <Route path="/notes/important" element={<ImportantNotes />}/>
-          </>
+        {authUser.isLoggedIn === false && (
+          <Route path="/" element={<Navigate replace to="/login" />} />
         )}
-        <Route path="*" element={<Navigate replace to="/login" />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/notes" element={<Notes />} />
+        <Route path="/notes/searh/id/:id" element={<NotesById />} />
+        <Route path="/notes/add" element={<NotesAdd />} />
+        <Route path="/notes/search" element={<Search />} />
+        <Route path="/notes/category/:category" element={<CategoryNotes />} />
+        <Route path="/notes/important" element={<ImportantNotes />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>

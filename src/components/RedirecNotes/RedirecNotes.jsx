@@ -1,10 +1,19 @@
+import { MdAdd } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { StyleRedirecNots } from './StyledRedirecNots';
 const RedirecNotes = () => {
   const navigate = useNavigate();
+  const ƒHandleAdd = () => {
+    navigate('/notes/add');
+  };
   return (
     <StyleRedirecNots>
-      <h2>Notes</h2>
+      <div className="btnAdd">
+        <button onClick={ƒHandleAdd}>
+          <MdAdd />
+        </button>
+      </div>
+      <h1>Notes</h1>
       <div className="btnRender">
         <button
           onClick={() => {
@@ -14,7 +23,7 @@ const RedirecNotes = () => {
           All Notes
         </button>
 
-        <h2>Category</h2>
+        <h3>Category</h3>
         <button
           onClick={() => {
             navigate('/notes/category/daily');

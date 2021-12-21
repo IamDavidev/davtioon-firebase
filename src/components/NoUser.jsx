@@ -14,7 +14,7 @@ const NoUserStyled = styled.div`
     border-radius: 1rem;
     padding: 1rem;
     color: ${theme.$pre};
-    font-size:2rem;
+    font-size:1rem;
     letter-spacing: .4rem;
     text-transform: uppercase;
     border-bottom: 2px solid ${theme.$secondary};
