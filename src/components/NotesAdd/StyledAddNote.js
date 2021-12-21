@@ -15,7 +15,8 @@ const AddNote = Styled.div`
         justify-content: center;
         padding:1rem;
     }
-    textArea{
+    textarea{
+        padding:0.4rem
         width:15rem;
         min-width:15rem;
         max-width:15rem;

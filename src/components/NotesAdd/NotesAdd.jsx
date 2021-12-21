@@ -9,6 +9,7 @@ import {
   MdDownloadDone,
 } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 const NotesAdd = () => {
   const { authUser } = useContext(ContextUser);
   const navigate = useNavigate();
@@ -28,12 +29,12 @@ const NotesAdd = () => {
               type="text"
               name="title"
               required
-              autoComplete
+              autoComplete="on"
             />
           </label>
           <label className="impCheck">
             Important
-            <input type="checkbox" value={true} name="important" autoComplete />
+            <input type="checkbox" value={true} name="important" autoComplete='on' />
           </label>
           <label>
             <MdCategory />
@@ -56,6 +57,7 @@ const NotesAdd = () => {
           </button>
         </div>
       </form>
+      <Toaster />
     </AddNote>
   );
 };

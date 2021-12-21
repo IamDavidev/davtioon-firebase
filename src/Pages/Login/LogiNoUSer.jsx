@@ -1,11 +1,12 @@
 import { useContext } from 'react';
-import { ContextUser, StateContext } from '../../Utils/context';
+import { ContextUser, Nouser } from '../../Utils/context';
 import { StyledNoUser } from './StyledLogin';
 import {Link} from 'react-router-dom';
 const LogiNoUSer = () => {
   const { authUser, setAuthUser } = useContext(ContextUser);
   const loggout = () => {
-    setAuthUser(StateContext);
+    setAuthUser(Nouser);
+    localStorage.removeItem('user');
   };
 
   return (

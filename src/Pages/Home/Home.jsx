@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import NoUser from '../../components/NoUser';
 import RedirecNotes from '../../components/RedirecNotes/RedirecNotes';
 import { db } from '../../Firebase/config';
-import { ContextUser, StateContext } from '../../Utils/context';
+import { ContextUser, Nouser } from '../../Utils/context';
 const Home = () => {
   const { authUser, setAuthUser } = useContext(ContextUser);
   return (

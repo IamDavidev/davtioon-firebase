@@ -26,12 +26,12 @@ const Register = () => {
             required
             type="text"
             name="firstName"
-            placeholder="firstName"  autoComplete='on'
+            placeholder="first Name"  autoComplete='on'
           />
         </label>
         <label className="inputRegister">
           <IoMdPerson className="icon" />
-          <input required type="text" name="lastName" placeholder="lastName" autoComplete='on' />
+          <input required type="text" name="lastName" placeholder="last Name" autoComplete='on' />
         </label>
         <label className="inputRegister">
           <IoIosMail className="icon" />

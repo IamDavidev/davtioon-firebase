@@ -38,7 +38,7 @@ const NotesR = ({ notes, Tnotes }) => {
                     <h3>{note.title}</h3>
                   )}
                   <div className="contentNote">
-                    <p>{note.content}</p>
+                    <textarea defaultValue={note.content} readOnly   />
                   </div>
                   <span>{note.id}</span>
                   <button

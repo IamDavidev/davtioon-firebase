@@ -6,4 +6,4 @@ const RenderContent = ({content}) => {
     )
 }
 
-export default RenderContent
+export default RenderContent 

@@ -8,32 +8,36 @@ import {
 import { auth } from './config';
 import toast from 'react-hot-toast';
 //#endregion
+const localStorageUser = (userR) => {
+  return localStorage.setItem('user', JSON.stringify(userR));
+};
+
 export const HandleLoginWithGoogle = ({ setUser, navigate }) => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
     .then((res) => {
       const { displayName, uid, email } = res.user;
-
-      setUser({
+      const userR = {
         name: displayName,
         email,
         uid,
         isLoggedIn: true,
-      });
+      };
+      setUser(userR);
+      localStorageUser(userR);
       navigate('/home');
     })
     .catch((err) => {
       const errorCode = err.code;
       const errorMessage = err.message;
       const email = err.email;
-      const credential = GoogleAuthProvider.credentialFromResult(error);
+      const credential = GoogleAuthProvider.credentialFromResult(err);
     });
   // };
 };
-export const HandleRegisterUser = ({evt,setUser,navigate}) => {
+export const HandleRegisterUser = ({ evt, setUser, navigate }) => {
   evt.preventDefault();
   const name = evt.target.firstName.value;
-  const lastName = evt.target.lastName.value;
   const email = evt.target.email.value;
   const password = evt.target.password.value;
   const confirmPassword = evt.target.confirmPassword.value;
@@ -52,7 +56,8 @@ export const HandleRegisterUser = ({evt,setUser,navigate}) => {
         isLoggedIn: true,
       };
       setUser(userData);
-      return navigate('/home');
+      localStorageUser(userData);
+      navigate('/home');
     })
     .catch((err) => {
       const errorcode = err.code;
@@ -70,17 +75,19 @@ export const HandleAccesUser = ({ evt, setUser, navigate }) => {
       const { uid } = user;
       const name = user.displayName || ' ';
       const email = user.email;
-      setUser({
+      const userR = {
         name,
         email,
         uid,
         isLoggedIn: true,
-      });
-      return navigate('/home');
+      };
+      setUser(userR);
+      localStorageUser(userR);
+      navigate('/home');
     })
     .catch((err) => {
       const errorcode = err.code;
-      const errormessage = err.message;;
+      const errormessage = err.message;
       return toast.error(err.message);
     });
 };

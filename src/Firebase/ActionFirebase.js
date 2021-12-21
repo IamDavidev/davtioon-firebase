@@ -8,11 +8,19 @@ import {
   query,
   where,
 } from 'firebase/firestore';
+import toast from 'react-hot-toast';
 import { db } from './config';
+
+
+
 export const addNote = async ({ evt, uid, nav }) => {
   const pruebaref = collection(db, `${uid}`);
+  const title = evt.target.title.value;
+  if(title.length > 10){
+    return toast.error('Title must be less than 10 characters');
+  }
   await addDoc(pruebaref, {
-    title: evt.target.title.value,
+    title,
     content: evt.target.content.value,
     important: evt.target.important.checked,
     date: new Date(),

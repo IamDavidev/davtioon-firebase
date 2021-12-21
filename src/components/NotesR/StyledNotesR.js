@@ -56,6 +56,7 @@ const StyledNotesR = Styled.main`
         padding-top:1rem;
         color: ${theme.$pre};
         margin:0 auto;
+
       }
       .titleI{
         color: #f00
@@ -80,20 +81,30 @@ const StyledNotesR = Styled.main`
         width:10rem;
         max-width:12rem;
       } 
-      p{
-        color:#000;
-        margin:0;
+     textarea{
+      width:10rem;
+        min-width:10rem;
+        max-width:10rem;
         height:10rem;
-        width:10rem;
-      }
+        min-height:10rem;
+        max-height:10rem;
+        border-radius: 1rem;
+        background: none;
+        border:none;
+        color: #000;
+        :focus{
+            outline:none;
+        }
+     }
       button{
         display:flex;
-        justify-content:flex-end;
+        justify-content:flex-start;
         background:none;
         border:none;
         color: #000;
-        /* margin-top:1rem; */
+   
         font-size: 2rem;
+        cursor:pointer;
       }
       @media (min-width: 900px){
         .swiper {
@@ -102,6 +113,14 @@ const StyledNotesR = Styled.main`
       }
         .swiper-slide {
           font-size: 1rem;
+      }
+      textarea{
+        width:15rem;
+        min-width:15rem;
+        max-width:15rem;
+        height:17rem;
+        min-height:17rem;
+        max-height:17rem;
       }
       h3{
           font-size: 2rem;

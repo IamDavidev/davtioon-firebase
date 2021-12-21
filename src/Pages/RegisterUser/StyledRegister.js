@@ -15,7 +15,7 @@ export const StyledRegister = styled.div`
   }
   .icon {
     font-size: 2rem;
-    color: #000;
+    color: #fff;
   }
   input {
     border: none;
@@ -29,7 +29,8 @@ export const StyledRegister = styled.div`
       outline: none;
     }
     ::placeholder {
-      color: #000;
+      color: #fff;
+      letter-spacing: 0.1rem;
     }
   }
   button {

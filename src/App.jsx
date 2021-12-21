@@ -1,10 +1,10 @@
 import AppRoutes from './Routes/Routes';
 import { AppStyled } from './StyledMain';
-import { ContextUser, StateContext } from './Utils/context';
+import { ContextUser, StateInitial } from './Utils/context';
 import { useState } from 'react';
 
 const App = () => {
-  const [authUser, setAuthUser] = useState(StateContext);
+  const [authUser, setAuthUser] = useState(StateInitial);
   return (
     <ContextUser.Provider value={{ authUser, setAuthUser }}>
       <AppStyled>
